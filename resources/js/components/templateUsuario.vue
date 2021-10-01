@@ -1,0 +1,52 @@
+<template>
+    <v-footer
+        color="#005197"
+        padless
+    >
+        <v-row
+            justify="center"
+            no-gutters
+        >
+            <v-btn
+                @click="Culturas"
+                color="white"
+                text
+                rounded
+                class="my-2"
+            >
+                Culturas
+            </v-btn>
+
+
+            <v-btn
+                @click="Propriedades"
+                color="white"
+                text
+                rounded
+                class="my-2"
+            >
+                Propriedades
+            </v-btn>
+        </v-row>
+    </v-footer>
+</template>
+
+<script>
+export default {
+    data: () => ({
+
+    }),
+
+    methods: {
+
+
+
+        Culturas (){
+            this.$router.push('culturas')
+        },
+        Propriedades (){
+            this.$router.push('propriedades')
+        }
+    }
+}
+</script>

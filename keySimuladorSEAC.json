@@ -1,0 +1,12 @@
+    {
+  "type": "service_account",
+  "project_id": "simuladorseac",
+  "private_key_id": "f6486cccb76ddf1466e446107384208987e03604",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD4l/uyJ8CilCBj\nI/1F+TstSpn5YX/q4ENeoHIpjjXxXrMODOoraDDP8uEqbKjQ0sMSs1CB2PqJPjlZ\nHxKHA7UzXfC7ye3Ha465PRC3t7crvO9rLLSTjpsFq/Hm+peHUhOmrrNGydBGq0fb\n4ouBacCN+4jdLsk0/Mk4PwSgiV4w0XWjhFOnPyVYXEiTryB66t+n0Ox4HyeaW+xc\ncX35aiPgFvQPG3r5OHm5zqjezUSGP/Yo2DTveKeQ8b4Qbu1DLdnADf58Wqb7aN3G\nmTMaX6ynG03Nm1fVZEtEqI0pq+KZRlGyN4fhDxQCWdrFjCXyTj7JcZc2X/BF/4gt\n7A9IyPxrAgMBAAECggEADsBuFi9Xtg4WMevjzrAwe8qOgobvoU93j/jzbVXcC5u0\nAmRvzO2c3+ooxGy4Q9QN8WEkqN/oVhaULp6yacKlkQvFCk+8RXYzfPiLsms7emP2\nzSRU/uCagGaory01qrkLI3wAdXXqXxcw53J1FtPgskw33fA1zmglxKmwq5obNchK\nQxQsmo9MIsltAeZKQ2g1SWpE5HuaWkU+niBmVm2/g8FokNGiCu1NYWwsdFCb6xFl\nkUfh7xmrY2KHi0m8i/PMiUIyomI8PRQRUvIRaWopsN/JzwSjPlewTK4h11NbYePw\nu5Cxue3l1EhijGn1aQouAgJCRmTpOWuGJAa2ZpUAcQKBgQD9U8i8GyF0GxcCDtnH\nQ6o0hby8GF1gO/e4m0psSFfezKv+Cr3O3lUHaKMkTxbQpmp4tNo6v64QVipM3Nsa\nVAssAfxGBrwuMIH5CsX0hVzhO62xwYa5des1FnZu1ym9qPbHmR7pXRw8eeO4i/PZ\n6QrzYKI9CwlCxLnRM6nF6Xg6QwKBgQD7N2n830L4ZHdiFC8w8ygioiQZSQOdxkrd\nwqpc4IbaRZUzWkG0fnYnbKYpOkP29OC0X7AXFfKUylo9ih7+EjLGKQ4bbKzY0CXc\n9xv1nURqt8FthTz0A8fnneAQZxleD1wSQprOIgXyk3C/PCD2/PryqaG3NIrFk2Qn\n1YmMfwR2uQKBgGjdWvYLIREH+cE/VoU3DGkLh3Ixf83LZSNFHUyvsbgn73aNCb9t\np7MWbJomJyKeEOsAqmmxWSOoF4CT2BsQ+ULxW3W9af6Q0+y8ue8bmbQe2SsBGn0B\nRClIsCP36254WBeN2g7uHTcnmc2WGY51+rN+qAou3FmISAdCpJ+porwzAoGBAOjY\nC9zd8uzX8e9uVe9A8Upojp0BF+D9EhdJfy5mzZcyN4BJf+0T6d/QzJIZ9zTG9B87\nMbO0HAvdIpc3llJX+8e/9dtldy/efbm5MKkPA4MGnrosbLqfZoI/ypZpeRG9mtEx\n+tpknq6gCji2Orey88ZHhCSTBqzqWEKzobIfaLvBAoGAd76ZfoPA3RY/L+koFAPj\noz/gNyLqZuwRLjXvCMzf7QbFX5nWiZibhFLkwf9++5h4cTIx7xCIVUGURzHmLFKZ\nsExWcyNW3zabqpsSSNU6VoZdwV99Mh0dK0WhKZDQ9OgQZHoTnHw6JD+NuFS4gXTz\nowTCogHwrGGpdGtVYwh3Xv0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-nish3@simuladorseac.iam.gserviceaccount.com",
+  "client_id": "112525107273263378036",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-nish3%40simuladorseac.iam.gserviceaccount.com"
+}
