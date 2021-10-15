@@ -10,7 +10,7 @@
         >
             <v-btn
                 @click="Culturas"
-
+                color="white"
                 text
                 rounded
                 class="my-2"
@@ -21,7 +21,7 @@
 
             <v-btn
                 @click="Propriedades"
-
+                color="white"
                 text
                 rounded
                 class="my-2"

@@ -70,6 +70,8 @@ export default {
         ]
     }),
 
+    //lista action vuetify
+
     methods:{
         Sair(){
             axios.post('sair',this.usuarioLogin).then(response => {

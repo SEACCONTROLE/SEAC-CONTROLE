@@ -26,7 +26,7 @@
                     >
                         <v-text-field
                             v-model="cotacao.valorDolarDolar"
-                            solo
+                            outlined
                         label="Valor em Dolar"
                         >
 
@@ -39,7 +39,7 @@
                         <v-text-field
                             v-model="cotacao.MenorOscilacaoDolar"
                             v-on:keyup="dolar(cotacao)"
-                            solo
+                            outlined
                             label="Porcentagem da Menor Oscilação"
                         >
 
@@ -52,7 +52,7 @@
                         <v-text-field
                             v-model="cotacao.MaiorOscilacaoDolar"
                             v-on:keyup="dolar2(cotacao)"
-                            solo
+                            outlined
                             label="Porcentagem da Maior Oscilação"
 
                         >
@@ -68,7 +68,7 @@
 
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMenor"
-                                solo
+                                outlined
                                 disabled
                                 label="Valor Menor Oscilação"
                             >
@@ -85,7 +85,7 @@
 
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMaior"
-                                solo
+                                outlined
                                 disabled
                                 label="Valor Maior Oscilação"
                             >
@@ -107,7 +107,7 @@
 
                             <v-text-field
                                 v-model="cotacao.precosmsacaindustrial"
-                                solo
+                                outlined
                                 v-on:keyup="precoMedio(cotacao)"
                                 label="Saca Padrão Industrial"
                             >
@@ -125,7 +125,7 @@
 
                             <v-text-field
                                 v-model="cotacao.pesoSacaKgs"
-                                solo
+                                outlined
                                 v-on:keyup="precoMedio(cotacao)"
                                 label="Peso Saca Kgs"
                             >
@@ -142,7 +142,7 @@
 
                                 <v-text-field
                                     v-model="cotacao.precosMquiloindustrial"
-                                    solo
+                                    outlined
                                     disabled
                                     label="Preço Médio Kilo"
                                 >
@@ -162,7 +162,7 @@
 
                                 <v-text-field
                                     v-model="cotacao.maioroscilacao"
-                                    solo
+                                    outlined
                                     v-on:keyup="oscilacaoPositiva(cotacao)"
                                     label="Porcentagem de Oscilação Positiva Saca"
                                 >
@@ -179,7 +179,7 @@
 
                                 <v-text-field
                                     v-model="cotacao.menoroscilacao"
-                                    solo
+                                    outlined
                                     v-on:keyup="oscilacaoNegativa(cotacao)"
                                     label="Porcentagem de Oscilação Negativa Saca"
                                 >
@@ -198,7 +198,7 @@
 
                                 <v-text-field
                                     v-model="cotacao.valorMaiorOscilacao"
-                                    solo
+                                    outlined
                                     disabled
                                     label="Valor Oscilação Positiva Saca"
                                 >
@@ -216,7 +216,7 @@
 
                                 <v-text-field
                                     v-model="cotacao.valorMenorOscilacao"
-                                    solo
+                                    outlined
                                     disabled
                                     label="Valor Oscilação Negativa Saca"
                                 >
@@ -251,7 +251,7 @@
                         >
                             <v-text-field
                                 v-model="cotacao.ValorHectareVenda"
-                                solo
+                                outlined
                                 v-on:keyup="sacasVenda(cotacao)"
                                 label="Valor Do Hectare para Venda em R$"
                             >
@@ -266,7 +266,7 @@
                         >
                             <v-text-field
                                 v-model="cotacao.QuantidadeSacasVenda"
-                                solo
+                                outlined
                                 disabled
                                 label="Valor em Sacas"
                             >
@@ -282,7 +282,7 @@
                         >
                             <v-text-field
                                 v-model="cotacao.porcentagemValorArrendamento"
-                                solo
+                                outlined
                                 label="Valor Hectare para Arrendamento Em %	"
                             >
 
@@ -296,7 +296,7 @@
                         >
                             <v-text-field
                                 v-model="cotacao.ValorHectareArrendamento"
-                                solo
+                                outlined
                                 v-on:keyup="sacasArrendamento(cotacao)"
                                 label="Valor Do Hectare para Arrendamento Em R$	"
                             >
@@ -311,7 +311,7 @@
                         >
                             <v-text-field
                                 v-model="cotacao.QuantidadeSacasArrendamento"
-                                solo
+                                outlined
                                 disabled
                                 label="Valor em Sacas"
                             >

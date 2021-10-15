@@ -1921,6 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
+  //lista action vuetify
   methods: {
     Sair: function Sair() {
       var _this = this;
@@ -3700,9 +3701,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Navbar: _Navbar__WEBPACK_IMPORTED_MODULE_0__.default,
-    NavbarUsuario: function NavbarUsuario() {
-      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./templateUsuario.vue */ "./resources/js/components/templateUsuario.vue"));
+    NavbarSimulador: function NavbarSimulador() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue"));
     }
   },
   data: function data() {
@@ -43829,7 +43829,7 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Valor em Dolar" },
+                            attrs: { outlined: "", label: "Valor em Dolar" },
                             model: {
                               value: _vm.cotacao.valorDolarDolar,
                               callback: function($$v) {
@@ -43848,7 +43848,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Porcentagem da Menor Oscilação"
                             },
                             on: {
@@ -43878,7 +43878,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Porcentagem da Maior Oscilação"
                             },
                             on: {
@@ -43915,7 +43915,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Valor Menor Oscilação"
                             },
@@ -43937,7 +43937,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Valor Maior Oscilação"
                             },
@@ -43972,7 +43972,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Saca Padrão Industrial"
                             },
                             on: {
@@ -44001,7 +44001,7 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Peso Saca Kgs" },
+                            attrs: { outlined: "", label: "Peso Saca Kgs" },
                             on: {
                               keyup: function($event) {
                                 return _vm.precoMedio(_vm.cotacao)
@@ -44025,7 +44025,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Preço Médio Kilo"
                             },
@@ -44057,7 +44057,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Porcentagem de Oscilação Positiva Saca"
                             },
                             on: {
@@ -44083,7 +44083,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Porcentagem de Oscilação Negativa Saca"
                             },
                             on: {
@@ -44115,7 +44115,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Valor Oscilação Positiva Saca"
                             },
@@ -44141,7 +44141,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Valor Oscilação Negativa Saca"
                             },
@@ -44193,7 +44193,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Valor Do Hectare para Venda em R$"
                             },
                             on: {
@@ -44219,7 +44219,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Valor em Sacas"
                             },
@@ -44251,7 +44251,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Valor Hectare para Arrendamento Em %\t"
                             },
                             model: {
@@ -44276,7 +44276,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label:
                                 "Valor Do Hectare para Arrendamento Em R$\t"
                             },
@@ -44307,7 +44307,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Valor em Sacas"
                             },
@@ -45064,7 +45064,7 @@ var render = function() {
   return _c(
     "v-app",
     [
-      _c("NavbarUsuario"),
+      _c("NavbarSimulador"),
       _vm._v(" "),
       _c("v-data-table", {
         staticClass: "elevation-1",
@@ -46298,7 +46298,10 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Área Total Talhão/Há" },
+                            attrs: {
+                              outlined: "",
+                              label: "Área Total Talhão/Há"
+                            },
                             on: {
                               keyup: function($event) {
                                 return _vm.areaDisponivelHa(_vm.pensamento)
@@ -46322,7 +46325,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Área Disponível Talhão Para Uso %"
                             },
                             on: {
@@ -46359,7 +46362,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Área Disponível De Uso Em Há"
                             },
@@ -46384,7 +46387,10 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Estimativa De Kgs/Há" },
+                            attrs: {
+                              outlined: "",
+                              label: "Estimativa De Kgs/Há"
+                            },
                             model: {
                               value: _vm.pensamento.estimativaKgs,
                               callback: function($$v) {
@@ -46410,7 +46416,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Peso Médio Por Saca Em Kgs"
                             },
@@ -46436,7 +46442,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Estimativa Colheita Em Kgs"
                             },
@@ -46469,7 +46475,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Estimatima Colheita Scs/Ha"
                             },
@@ -46496,7 +46502,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Estimativa Colheita Total Em Sacas"
                             },
@@ -46531,7 +46537,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               disabled: "",
                               label: "Estimativa Valor De Venda Saca R$"
                             },
@@ -46557,7 +46563,7 @@ var render = function() {
                         [
                           _c("v-text-field", {
                             attrs: {
-                              solo: "",
+                              outlined: "",
                               label: "Desejo De Margem Liquida em %/Sc"
                             },
                             model: {
@@ -46863,7 +46869,7 @@ var render = function() {
                 "v-btn",
                 {
                   staticClass: "my-2",
-                  attrs: { text: "", rounded: "" },
+                  attrs: { color: "white", text: "", rounded: "" },
                   on: { click: _vm.Culturas }
                 },
                 [_vm._v("\n            Culturas\n        ")]
@@ -46873,7 +46879,7 @@ var render = function() {
                 "v-btn",
                 {
                   staticClass: "my-2",
-                  attrs: { text: "", rounded: "" },
+                  attrs: { color: "white", text: "", rounded: "" },
                   on: { click: _vm.Propriedades }
                 },
                 [_vm._v("\n            Propriedades\n        ")]

@@ -27,7 +27,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.areaTotalTalhao"
-                                solo
+                                outlined
                                 v-on:keyup="areaDisponivelHa(pensamento)"
                                 label="Área Total Talhão/Há"
                             >
@@ -40,7 +40,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.areaDisponivelTalhao"
-                                solo
+                                outlined
                                 v-on:keyup="areaDisponivelHa(pensamento)"
                                 label="Área Disponível Talhão Para Uso %"
                             >
@@ -55,7 +55,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.areaDisponivelEmHa"
-                                solo
+                                outlined
                                 disabled
                                 label="Área Disponível De Uso Em Há"
                             >
@@ -68,7 +68,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaKgs"
-                                solo
+                                outlined
                                 label="Estimativa De Kgs/Há"
                             >
                             </v-text-field>
@@ -83,7 +83,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.pesoMedioSacaKgs"
-                                solo
+                                outlined
                                 disabled
                                 label="Peso Médio Por Saca Em Kgs"
                             >
@@ -96,7 +96,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaColheitaKgs"
-                                solo
+                                outlined
                                 disabled
                                 label="Estimativa Colheita Em Kgs"
                             >
@@ -116,7 +116,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaColheitasSacasHa"
-                                solo
+                                outlined
                                 disabled
                                 label="Estimatima Colheita Scs/Ha"
                             >
@@ -129,7 +129,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaColheitaTotalSacas"
-                                solo
+                                outlined
                                 disabled
                                 label="Estimativa Colheita Total Em Sacas"
                             >
@@ -147,7 +147,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaValorVenda"
-                                solo
+                                outlined
                                 disabled
                                 label="Estimativa Valor De Venda Saca R$"
                             >
@@ -160,7 +160,7 @@
                         >
                             <v-text-field
                                 v-model="pensamento.desejoMargemLiquida"
-                                solo
+                                outlined
                                 label="Desejo De Margem Liquida em %/Sc"
                             >
                             </v-text-field>
