@@ -46,6 +46,13 @@ Vue.component('template-simulador', require('./components/TemplateSimuladorAgric
 Vue.component('token-use', require('./components/tokenComponent.vue').default);
 Vue.component('ciclo', require('./components/ciclo.vue').default);
 
+Vue.component('terraNua', require('./components/mercadoTerraNua.vue').default);
+Vue.component('culturasMercado', require('./components/culturasMercado.vue').default);
+Vue.component('culturasPensamento', require('./components/culturasPensamento.vue').default);
+
+
+
+
 
 
 
@@ -56,11 +63,16 @@ import Ciclo from './components/ciclo.vue'
 
 import Template from './components/templatePadrao.vue'
 import App from './components/App.vue'
+
 import Propriedades from './components/listaPropriedade.vue'
 import Cotacoes from './components/cotacoes.vue'
 import Pensamento from './components/pensamentoEstrategico.vue'
 import MenuUsuario from './components/templateUsuario.vue'
 import MenuSimulador from './components/TemplateSimuladorAgricultura.vue'
+import Home from './components/home.vue'
+import Terra from './components/mercadoTerraNua.vue'
+import CulturasMercado from './components/culturasMercado.vue'
+import CulturasPensamento from './components/culturasPensamento.vue'
 
 
 const store = new Vuex.Store({
@@ -97,6 +109,24 @@ const router = new VueRouter({
         },
 
         {
+            path: '/culturasMercado',
+            component: CulturasMercado
+
+        },
+
+        {
+            path: '/culturasPensamento',
+            component: CulturasPensamento
+
+        },
+
+        {
+            path: '/terraNua',
+            component: Terra
+
+        },
+
+        {
             path: '/ciclo',
             component: Ciclo
 
@@ -129,7 +159,7 @@ const router = new VueRouter({
         },
         {
             path: '',
-            component: () => import('./components/home.vue'),
+            component: Home,
             name: 'home',
         },
     ],
@@ -179,3 +209,4 @@ const app = new Vue({
     router,
     components: {App}
 });
+

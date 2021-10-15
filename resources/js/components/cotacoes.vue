@@ -4,7 +4,7 @@
         <main>
             <v-form v-model="valid">
                 <token-use></token-use>
-
+                <v-container fluid>
                 <v-row>
                     <v-col
                     cols="12"
@@ -12,11 +12,13 @@
                     >
                         <h1
                             class="text-center"
-                        >Cotações</h1>
+                        >Valor Dólar</h1>
                     </v-col>
                 </v-row>
 
-                <v-container>
+                </v-container>
+
+                <v-container fluid>
                 <v-row justify="center">
                     <v-col
                         cols="12"
@@ -24,6 +26,7 @@
                     >
                         <v-text-field
                             v-model="cotacao.valorDolarDolar"
+                            solo
                         label="Valor em Dolar"
                         >
 
@@ -31,11 +34,12 @@
                     </v-col>
                     <v-col
                         cols="12"
-                        lg="3"
+                        lg="4"
                     >
                         <v-text-field
                             v-model="cotacao.MenorOscilacaoDolar"
                             v-on:keyup="dolar(cotacao)"
+                            solo
                             label="Porcentagem da Menor Oscilação"
                         >
 
@@ -43,11 +47,12 @@
                     </v-col>
                     <v-col
                         cols="12"
-                        lg="3"
+                        lg="4"
                     >
                         <v-text-field
                             v-model="cotacao.MaiorOscilacaoDolar"
                             v-on:keyup="dolar2(cotacao)"
+                            solo
                             label="Porcentagem da Maior Oscilação"
 
                         >
@@ -58,253 +63,258 @@
                     <v-row justify="center">
                     <v-col
                         cols="12"
-                        lg="4"
+                        lg="6"
                     >
-                        <v-flex xs12 sm6>
 
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMenor"
-                                readonly
+                                solo
                                 label="Valor Menor Oscilação"
                             >
 
                             </v-text-field>
 
-                        </v-flex>
 
                     </v-col>
 
                     <v-col
                         cols="12"
-                        lg="4"
+                        lg="6"
                     >
-                        <v-flex xs12 sm6>
 
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMaior"
-                                readonly
+                                solo
                                 label="Valor Maior Oscilação"
                             >
 
                             </v-text-field>
 
-                        </v-flex>
 
                     </v-col>
                     </v-row>
                 </v-container>
 
 
-                <v-row>
+                <v-container fluid>
+                    <v-row>
                     <v-col
                         cols="12"
-                        lg="12"
+                        lg="4"
                     >
-                    <v-data-table
-                        :headers="headers"
-                        :items="culturas"
-                        sort-by="precoMedioSacaIndustrial"
-                        class="elevation-1"
-                    >
-                        <template v-slot:top>
-                            <v-toolbar
-                                flat
+
+                            <v-text-field
+                                v-model="cotacao.precosmsacaindustrial"
+                                solo
+                                v-on:keyup="precoMedio(cotacao)"
+                                label="Saca Padrão Industrial"
                             >
-                                    <v-toolbar-title>Valores Cereais e Oscilações</v-toolbar-title>
-                                <v-divider
-                                    class="mx-4"
-                                    inset
-                                    vertical
-                                ></v-divider>
-                                <v-spacer></v-spacer>
-                                <v-dialog
-                                    v-model="dialog"
-                                    max-width="1000px"
-                                >
-                                    <template v-slot:activator="{on, attrs}">
-                                        <v-btn
-                                            color="#124057"
-                                            dark
-                                            class="mb-2"
-                                            v-bind="attrs"
-                                            v-on="on"
-                                        >
-                                            Cadastrar Nova Oscilação de Preços
-                                        </v-btn>
-                                    </template>
-                                    <v-card>
 
-                                        <v-card-title>
-                                            <span class="text-h5">{{ formTitle }}</span>
-                                        </v-card-title>
-
-                                        <v-card-text>
-                                            <v-container>
-                                                <v-row>
-                                                    <v-col
-                                                        cols="6"
-                                                        sm="6"
-                                                        md="12"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.name"
-                                                            label="Cultura"
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.precosmsacaindustrial"
-                                                            label="Preço Médio da Saca"
-                                                        ></v-text-field>
-                                                    </v-col>
-
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.pesoSacaKgs"
-                                                            label="Peso Médio da Saca em Kgs"
-                                                        ></v-text-field>
-                                                    </v-col>
+                            </v-text-field>
 
 
-                                                </v-row>
-
-                                                <v-row>
-
-
-
-
-
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.menoroscilacao"
-                                                            label="% de Menor Oscilação"
-                                                        ></v-text-field>
-                                                    </v-col>
-
-
-                                                    <v-col
-                                                        cols="12"
-                                                        sm="6"
-                                                        md="6"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.maioroscilacao"
-                                                            label="% de Maior Oscilação"
-                                                        ></v-text-field>
-                                                    </v-col>
-                                                    </v-row>
-
-                                                    <v-toolbar-title>Valor Terra Nua</v-toolbar-title>
-                                                    <v-row>
-                                                    <v-col
-                                                        cols="12"
-                                                        lg="8"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.ValorHectareVenda"
-                                                            label="Valor Hectare para venda em R$"
-                                                        >
-
-                                                        </v-text-field>
-                                                    </v-col>
-
-
-                                                    <v-col
-                                                        cols="12"
-                                                        lg="8"
-                                                    >
-                                                        <v-text-field
-                                                            v-model="editedItem.ValorHectareArrendamento"
-                                                            label="Valor Hectare para Arrendamento em R$"
-                                                        >
-
-                                                        </v-text-field>
-                                                    </v-col>
-
-
-                                                        <v-col
-                                                            cols="12"
-                                                            lg="8"
-                                                        >
-                                                            <v-text-field
-                                                                v-model="editedItem.porcentagemValorArrendamento"
-                                                                label="Valor Hectare para Arrendamento Em %"
-                                                            >
-
-                                                            </v-text-field>
-                                                        </v-col>
-
-
-                                                </v-row>
-                                            </v-container>
-                                        </v-card-text>
-
-                                        <v-card-actions>
-                                            <v-spacer></v-spacer>
-                                            <v-btn
-                                                color="blue darken-1"
-                                                text
-                                                @click="close"
-                                            >
-                                                Cancel
-                                            </v-btn>
-                                            <v-btn
-                                                color="blue darken-1"
-                                                text
-                                                @click="save"
-                                            >
-                                                Save
-                                            </v-btn>
-                                        </v-card-actions>
-                                    </v-card>
-                                </v-dialog>
-                                <v-dialog v-model="dialogDelete" max-width="500px">
-                                    <v-card>
-                                        <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-                                        <v-card-actions>
-                                            <v-spacer></v-spacer>
-                                            <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-                                            <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-                                            <v-spacer></v-spacer>
-                                        </v-card-actions>
-                                    </v-card>
-                                </v-dialog>
-                            </v-toolbar>
-                        </template>
-                        <template v-slot:item.actions="{ item }">
-                            <v-icon
-                                small
-                                class="mr-2"
-                                @click="editItem(item)"
-                            >
-                                mdi-pencil
-                            </v-icon>
-                            <v-icon
-                                small
-                                @click="deleteItem(item)"
-                            >
-                                mdi-delete
-                            </v-icon>
-                        </template>
-
-                    </v-data-table>
                     </v-col>
-                </v-row>
+
+
+                    <v-col
+                        cols="12"
+                        lg="4"
+                    >
+
+                            <v-text-field
+                                v-model="cotacao.pesoSacaKgs"
+                                solo
+                                v-on:keyup="precoMedio(cotacao)"
+                                label="Peso Saca Kgs"
+                            >
+
+                            </v-text-field>
+
+
+                    </v-col>
+
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+
+                                <v-text-field
+                                    v-model="cotacao.precosMquiloindustrial"
+                                    solo
+
+                                    label="Preço Médio Kilo"
+                                >
+
+                                </v-text-field>
+
+
+                        </v-col>
+
+                    </v-row>
+
+                    <v-row>
+                        <v-col
+                            cols="12"
+                            lg="6"
+                        >
+
+                                <v-text-field
+                                    v-model="cotacao.maioroscilacao"
+                                    solo
+                                    v-on:keyup="oscilacaoPositiva(cotacao)"
+                                    label="Porcentagem de Oscilação Positiva Saca"
+                                >
+
+                                </v-text-field>
+
+
+                        </v-col>
+
+                        <v-col
+                            cols="12"
+                            lg="6"
+                        >
+
+                                <v-text-field
+                                    v-model="cotacao.menoroscilacao"
+                                    solo
+                                    v-on:keyup="oscilacaoNegativa(cotacao)"
+                                    label="Porcentagem de Oscilação Negativa Saca"
+                                >
+
+                                </v-text-field>
+
+
+                        </v-col>
+                    </v-row>
+
+                    <v-row>
+                        <v-col
+                            cols="12"
+                            lg="6"
+                        >
+
+                                <v-text-field
+                                    v-model="cotacao.valorMaiorOscilacao"
+                                    solo
+                                    label="Valor Oscilação Positiva Saca"
+                                >
+
+                                </v-text-field>
+
+
+                        </v-col>
+
+
+                        <v-col
+                            cols="12"
+                            lg="6"
+                        >
+
+                                <v-text-field
+                                    v-model="cotacao.valorMenorOscilacao"
+                                    solo
+                                    label="Valor Oscilação Negativa Saca"
+                                >
+
+                                </v-text-field>
+
+
+                        </v-col>
+
+                    </v-row>
 
 
 
+                    <v-row>
+                        <v-col
+                            cols="12"
+                            lg="12"
+                        >
+                            <h1
+                                class="text-center"
+                            >Valor Terra Nua</h1>
+                        </v-col>
+                    </v-row>
+
+                </v-container>
+
+                <v-container fluid>
+                    <v-row justify="center">
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="cotacao.ValorHectareVenda"
+                                solo
+                                v-on:keyup="sacasVenda(cotacao)"
+                                label="Valor Do Hectare para Venda em R$"
+                            >
+
+                            </v-text-field>
+                        </v-col>
+
+
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="cotacao.QuantidadeSacasVenda"
+                                solo
+                                label="Valor em Sacas"
+                            >
+
+                            </v-text-field>
+                        </v-col>
+                    </v-row>
+
+                    <v-row>
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="cotacao.porcentagemValorArrendamento"
+                                solo
+                                label="Valor Hectare para Arrendamento Em %	"
+                            >
+
+                            </v-text-field>
+                        </v-col>
+
+
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="cotacao.ValorHectareArrendamento"
+                                solo
+                                v-on:keyup="sacasArrendamento(cotacao)"
+                                label="Valor Do Hectare para Arrendamento Em R$	"
+                            >
+
+                            </v-text-field>
+                        </v-col>
+
+
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="cotacao.QuantidadeSacasArrendamento"
+                                solo
+                                label="Valor em Sacas"
+                            >
+
+                            </v-text-field>
+                        </v-col>
+                    </v-row>
+
+                </v-container>
 
                 <v-row>
                     <v-col
@@ -312,13 +322,14 @@
                         lg="12"
 
                     >
+
                         <v-btn
                             color="#124057"
                             dark
                             class="mb-2"
                             @click="SalvarCotacao"
                         >
-                            Salvar Dados
+                            Próximo
                         </v-btn>
                     </v-col>
                 </v-row>
@@ -341,81 +352,48 @@ export default {
         MaiorOscilacaoDolar: '',
         valorOsciladoMenor:'',
         valorOsciladoMaior:'',
-
-
-
+        precosmsacaindustrial: '',
+        precosMquiloindustrial: '',
+        pesoSacaKgs: '',
+        menoroscilacao: '',
+        maioroscilacao: '',
+        ValorHectareVenda: '',
+        QuantidadeSacasVenda:'',
+        ValorHectareArrendamento: '',
+        QuantidadeSacasArrendamento: '',
+        porcentagemValorArrendamento: '',
         valorMenorOscilacao: '',
         valorMaiorOscilacao: '',
+
+
 
         resultadoSalvar: '',
 
 
         dialog: false,
         dialogDelete: false,
-        headers: [
-            {
-                text: 'Cultura',
-                align: 'start',
-                sortable: false,
-                value: 'name',
-            },
-            { text: 'Preco Médio da Saca', value: 'precosmsacaindustrial' },
-            { text: 'Preco Médio Quilo', value: 'precosMquiloindustrial'},
-            { text: 'Peso Médio da Saca em Kgs', value: 'pesoSacaKgs'},
-            { text: '% de Menor Oscilação', value: 'menoroscilacao'},
-            { text: 'Valor da Menor Oscilação', value: 'valorMenorOscilacao'},
-            { text: '% de Maior Oscilação', value: 'maioroscilacao'},
-            { text: 'Valor da Maior Oscilação', value: 'valorMaiorOscilacao'},
-            { text: 'Valor Do Hectare para Venda em R$', value: 'ValorHectareVenda'},
-            { text: 'Quantidade de Sacas (Venda)', value: 'QuantidadeSacasVenda'},
-            { text: 'Valor Hectare para Arrendamento Em %', value: 'porcentagemValorArrendamento'},
-            { text: 'Valor Do Hectare para Arrendamento Em R$', value: 'ValorHectareArrendamento'},
-            { text: 'Quantidade de Sacas (Arrendamento)', value: 'QuantidadeSacasArrendamento'},
 
-
-            { text: 'Actions', value: 'actions', sortable: false },
-        ],
-        culturas: [],
-        editedIndex: -1,
-        editedItem: {
-            name: '',
-            precosmsacaindustrial: '',
-            precosMquiloindustrial: '',
-            pesoSacaKgs: '',
-            menoroscilacao: '',
-            maioroscilacao: '',
-            ValorHectareVenda: '',
-            QuantidadeSacasVenda:'',
-            ValorHectareArrendamento: '',
-            QuantidadeSacasArrendamento: '',
-            porcentagemValorArrendamento: '',
-
-        },
-        defaultItem: {
-            name: '',
-            precosmsacaindustrial: '',
-            precosMquiloindustrial: '',
-            pesoSacaKgs: '',
-            menoroscilacao: '',
-            valorMenorOscilacao: '',
-            maioroscilacao: '',
-            valorMaiorOscilacao: '',
-            ValorHectareVenda: '',
-            QuantidadeSacasVenda:'',
-            ValorHectareArrendamento: '',
-            QuantidadeSacasArrendamento: '',
-            porcentagemValorArrendamento: '',
-
-        },
 
 
         cotacao:{
-            culturas: [],
+
             valorDolarDolar: '',
             MenorOscilacaoDolar: '',
             MaiorOscilacaoDolar: '',
             valorOsciladoMenor:'',
             valorOsciladoMaior:'',
+            precosmsacaindustrial: '',
+            precosMquiloindustrial: '',
+            pesoSacaKgs: '',
+            menoroscilacao: '',
+            maioroscilacao: '',
+            ValorHectareVenda: '',
+            QuantidadeSacasVenda:'',
+            ValorHectareArrendamento: '',
+            QuantidadeSacasArrendamento: '',
+            porcentagemValorArrendamento: '',
+            valorMenorOscilacao: '',
+            valorMaiorOscilacao: '',
         },
 
         auxiliarCalculo: '',
@@ -462,9 +440,51 @@ export default {
             cotacao['valorOsciladoMaior']= +cotacao['valorDolarDolar']+(cotacao['valorDolarDolar']*cotacao['MaiorOscilacaoDolar']/100)
         },
 
-        SalvarCotacao (){
-            this.cotacao.culturas = this.culturas;
+        precoMedio(cotacao){
 
+            // precosmsacaindustrial: '',
+           // precosMquiloindustrial: '',
+           //     pesoSacaKgs: '',
+             //   menoroscilacao: '',
+              //  maioroscilacao: '',
+               // ValorHectareVenda: '',
+               //  QuantidadeSacasVenda:'',
+               // ValorHectareArrendamento: '',
+               // QuantidadeSacasArrendamento: '',
+               // porcentagemValorArrendamento: '',
+            //valorMenorOscilacao: '',
+              //  valorMaiorOscilacao: '',
+
+            cotacao['precosMquiloindustrial']= cotacao['precosmsacaindustrial']/cotacao['pesoSacaKgs']
+
+        },
+
+        oscilacaoPositiva(cotacao){
+
+          //this.editedItem['valorMaiorOscilacao'] = +this.editedItem['precosmsacaindustrial']+this.editedItem['precosmsacaindustrial']*(this.editedItem['maioroscilacao']/100)
+
+            cotacao['valorMaiorOscilacao']= +cotacao['precosmsacaindustrial']+cotacao['precosmsacaindustrial']*(cotacao['maioroscilacao']/100)
+
+        },
+        oscilacaoNegativa(cotacao){
+            cotacao['valorMenorOscilacao'] = +cotacao['precosmsacaindustrial']+cotacao['precosmsacaindustrial']*(cotacao['menoroscilacao']/100)
+
+        },
+
+        sacasVenda(cotacao){
+            cotacao['QuantidadeSacasVenda'] = +cotacao['ValorHectareVenda']/cotacao['precosmsacaindustrial']
+
+        },
+
+        sacasArrendamento(cotacao){
+            cotacao['QuantidadeSacasArrendamento'] = +cotacao['ValorHectareArrendamento']/cotacao['precosmsacaindustrial']
+
+        },
+
+        SalvarCotacao (){
+            //this.cotacao.culturas = this.culturas;
+            this.$router.push('ciclo')
+            /*
             axios.post('verificarCotacaoCadastrada',this.cotacao).then(response => {
                 this.resultadoSalvar= response.data;
                 if(this.resultadoSalvar){
@@ -478,7 +498,9 @@ export default {
                         this.$router.push('ciclo')
                     })
                 }
+
             })
+ */
 
           /*  axios.post('SalvarCotacoes',this.cotacao).then(response => {
                 this.resultadoSalvar= response.data;

@@ -2,200 +2,188 @@
     <v-app>
         <NavbarSimulador></NavbarSimulador>
 
+        <main>
+            <v-form v-model="valid">
+                <token-use></token-use>
+                <v-container fluid>
+                    <v-row>
+                        <v-col
+                            cols="12"
+                            lg="12"
+                        >
+                            <h1
+                                class="text-center"
+                            >Pensamento Estratégico</h1>
+                        </v-col>
+                    </v-row>
 
-        <v-data-table
-            :headers="headers"
-            :items="culturas"
-            sort-by="cultivar"
-            class="elevation-1"
-        >
-            <template v-slot:top>
-                <v-toolbar
-                    flat
-                >
+                </v-container>
 
-
-                    <v-toolbar-title>Objetivos Operacionais</v-toolbar-title>
-
-
-                    <v-divider
-                        class="mx-4"
-                        inset
-                        vertical
-                    ></v-divider>
-                    <v-spacer></v-spacer>
-                    <v-dialog
-                        v-model="dialog"
-                        max-width="1000px"
-                    >
-                        <template v-slot:activator="{on, attrs}">
-                            <v-btn
-                                color="#124057"
-                                dark
-                                class="mb-2"
-                                v-bind="attrs"
-                                v-on="on"
+                <v-container fluid>
+                    <v-row justify="center">
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.areaTotalTalhao"
+                                solo
+                                v-on:keyup="areaDisponivelHa(pensamento)"
+                                label="Área Total Talhão/Há"
                             >
-                                Nova Cultura
-                            </v-btn>
-                        </template>
-                        <v-card>
-                            <v-card-title>
-                                <span class="text-h5">{{ formTitle }}</span>
-                            </v-card-title>
+                            </v-text-field>
+                        </v-col>
 
-                            <v-card-text>
-                                <v-container>
-                                    <v-row>
-                                        <v-col
-                                            cols="12"
-                                            sm="6"
-                                            md="4"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.name"
-                                                label="Cultura"
-                                            ></v-text-field>
-                                        </v-col>
-                                        <v-col
-                                            cols="12"
-                                            sm="6"
-                                            md="4"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.cultivar"
-                                                label="Cultivar"
-                                            ></v-text-field>
-                                        </v-col>
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.areaDisponivelTalhao"
+                                solo
+                                v-on:keyup="areaDisponivelHa(pensamento)"
+                                label="Área Disponível Talhão Para Uso %"
+                            >
+                            </v-text-field>
+                        </v-col>
+                    </v-row>
 
+                    <v-row justify="center">
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.areaDisponivelEmHa"
+                                solo
+                                label="Área Disponível De Uso Em Há"
+                            >
+                            </v-text-field>
+                        </v-col>
 
-                                        <v-col
-                                            cols="12"
-                                            sm="6"
-                                            md="4"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.idTalhao"
-                                                label="Identificação do Talhao"
-                                            ></v-text-field>
-                                        </v-col>
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.estimativaKgs"
+                                solo
+                                label="Estimativa De Kgs/Há"
+                            >
+                            </v-text-field>
+                        </v-col>
 
+                    </v-row>
 
-                                        <v-col
-                                            cols="12"
-                                            lg="3"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.sistemaPlantio"
-                                                label="Sistema De Plantio"
-                                            >
+                    <v-row justify="center">
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.pesoMedioSacaKgs"
+                                solo
+                                label="Peso Médio Por Saca Em Kgs"
+                            >
+                            </v-text-field>
+                        </v-col>
 
-                                            </v-text-field>
-                                        </v-col>
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.estimativaColheitaKgs"
+                                solo
+                                label="Estimativa Colheita Em Kgs"
+                            >
+                            </v-text-field>
+                        </v-col>
 
-                                        <v-col
-                                            cols="12"
-                                            lg="3"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.areaTotalTalhao"
-                                                label="Área Total Talhão/Há"
-                                            >
-
-                                            </v-text-field>
-                                        </v-col>
-
-
-                                        <v-col
-                                            cols="12"
-                                            lg="3"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.areaDisponivelTalhao"
-                                                label="Área Disponível Talhão Para Uso %"
-                                            >
-
-                                            </v-text-field>
-                                        </v-col>
-
-                                        <v-col
-                                            cols="12"
-                                            lg="3"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.estimativaKgs"
-                                                label="Estimativa De Kgs/Há"
-                                            >
-
-                                            </v-text-field>
-                                        </v-col>
+                    </v-row>
 
 
-                                        <v-col
-                                            cols="12"
-                                            lg="3"
-                                        >
-                                            <v-text-field
-                                                v-model="editedItem.desejoMargemLiquida"
-                                                label="Desejo De Margem Liquida em %/Sc"
-                                            >
 
-                                            </v-text-field>
-                                        </v-col>
 
-                                    </v-row>
-                                </v-container>
-                            </v-card-text>
+                    <v-row justify="center">
 
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn
-                                    color="blue darken-1"
-                                    text
-                                    @click="close"
-                                >
-                                    Cancel
-                                </v-btn>
-                                <v-btn
-                                    color="blue darken-1"
-                                    text
-                                    @click="save"
-                                >
-                                    Save
-                                </v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-dialog>
-                    <v-dialog v-model="dialogDelete" max-width="500px">
-                        <v-card>
-                            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-                                <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-                                <v-spacer></v-spacer>
-                            </v-card-actions>
-                        </v-card>
-                    </v-dialog>
-                </v-toolbar>
-            </template>
-            <template v-slot:item.actions="{ item }">
-                <v-icon
-                    small
-                    class="mr-2"
-                    @click="editItem(item)"
-                >
-                    mdi-pencil
-                </v-icon>
-                <v-icon
-                    small
-                    @click="deleteItem(item)"
-                >
-                    mdi-delete
-                </v-icon>
-            </template>
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.estimativaColheitasSacasHa"
+                                solo
+                                label="Estimatima Colheita Scs/Ha"
+                            >
+                            </v-text-field>
+                        </v-col>
 
-        </v-data-table>
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.estimativaColheitaTotalSacas"
+                                solo
+                                label="Estimativa Colheita Total Em Sacas"
+                            >
+                            </v-text-field>
+                        </v-col>
+
+                    </v-row>
+
+
+                    <v-row justify="center">
+
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.estimativaValorVenda"
+                                solo
+                                label="Estimativa Valor De Venda Saca R$"
+                            >
+                            </v-text-field>
+                        </v-col>
+
+                        <v-col
+                            cols="12"
+                            lg="4"
+                        >
+                            <v-text-field
+                                v-model="pensamento.desejoMargemLiquida"
+                                solo
+                                label="Desejo De Margem Liquida em %/Sc"
+                            >
+                            </v-text-field>
+                        </v-col>
+
+                    </v-row>
+                </v-container>
+
+
+                <v-row>
+                    <v-col
+                        cols="12"
+                        lg="12"
+
+                    >
+
+                        <v-btn
+                            color="#124057"
+                            dark
+                            class="mb-2"
+                            @click="SalvarCotacao"
+                        >
+                            Próximo
+                        </v-btn>
+                    </v-col>
+                </v-row>
+
+            </v-form>
+        </main>
 
 
     </v-app>
@@ -211,69 +199,20 @@ export default {
     data: () => ({
         dialog: false,
         dialogDelete: false,
-        headers: [
-            {
-                text: 'Cultura',
-                align: 'start',
-                sortable: false,
-                value: 'name',
-            },
-            { text: 'Cultivar', value: 'cultivar' },
-            { text: 'Identificação do Talhão', value: 'idTalhao'},
-            { text: 'Sistema De Plantio', value: 'sistemaPlantio' },
-            { text: 'Área Total Talhão/Há', value: 'areaTotalTalhao' },
-            { text: 'Área Disponível Talhão Para Uso %', value: 'areaDisponivelTalhao' },
-            { text: 'Área Disponível De Uso Em Há', value: 'areaDisponivelEmHa'},
-            { text: 'Estimativa De Kgs/Há', value: 'estimativaKgs' },
-            { text: 'Peso Médio Por Saca Em Kgs', value: 'pesoMedioSacaKgs'},
-            { text: 'Estimativa Colheita Em Kgs', value: 'estimativaColheitaKgs' },
-            { text: 'Estimatima Colheita Scs/Ha', value: 'estimativaColheitasSacasHa'},
-            { text: 'Estimativa Colheita Total Em Sacas', value: 'estimativaColheitaTotalSacas' },
-            { text: 'Estimativa Valor De Venda Saca R$', value: 'estimativaValorSacaRS'},
-            { text: 'Desejo De Margem Liquida em %/Sc', value: 'desejoMargemLiquida'},
-            { text: 'Actions', value: 'actions', sortable: false },
-        ],
-        culturas: [],
-        editedIndex: -1,
-        editedItem: {
-            name: '',
-            cultivar: '',
-            idTalhao: '',
-            sistemaPlantio: '',
-            areaTotalTalhao: '',
-            areaDisponivelTalhao: '',
-            areaDisponivelEmHa: '',
-            estimativaKgs: '',
-            pesoMedioSacaKgs: '',
-            estimativaColheitaKgs: '',
-            estimativaColheitasSacasHa: '',
-            estimativaColheitaTotalSacas: '',
-            estimativaValorSacaRS: '',
-            desejoMargemLiquida: '',
 
 
-        },
-        defaultItem: {
-            name: '',
-            cultivar: '',
-            idTalhao: '',
-            sistemaPlantio: '',
-            areaTotalTalhao: '',
-            areaDisponivelTalhao: '',
-            areaDisponivelEmHa: '',
-            estimativaKgs: '',
-            pesoMedioSacaKgs: '',
-            estimativaColheitaKgs: '',
-            estimativaColheitasSacasHa: '',
-            estimativaColheitaTotalSacas: '',
-            desejoMargemLiquida: '',
-        },
-
-        pesoMedioSaca: '',
-        precoSaca: '',
 
         pensamento: {
-          culturas: [],
+            areaTotalTalhao: '',
+            areaDisponivelTalhao: '',
+            areaDisponivelEmHa: '',
+            estimativaKgs: '',
+            pesoMedioSacaKgs: '',
+            estimativaColheitaKgs: '',
+            estimativaColheitasSacasHa: '',
+            estimativaColheitaTotalSacas: '',
+            desejoMargemLiquida: '',
+            estimativaValorVenda: '',
         },
 
     }),
@@ -298,6 +237,10 @@ export default {
     },
 
     methods: {
+
+        areaDisponivelHa(pensamento){
+            pensamento['areaDisponivelEmHa'] = pensamento['areaTotalTalhao']*pensamento['areaDisponivelTalhao']/100
+        },
 
 
 
