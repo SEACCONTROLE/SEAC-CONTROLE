@@ -69,6 +69,7 @@
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMenor"
                                 solo
+                                disabled
                                 label="Valor Menor Oscilação"
                             >
 
@@ -85,6 +86,7 @@
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMaior"
                                 solo
+                                disabled
                                 label="Valor Maior Oscilação"
                             >
 
@@ -141,7 +143,7 @@
                                 <v-text-field
                                     v-model="cotacao.precosMquiloindustrial"
                                     solo
-
+                                    disabled
                                     label="Preço Médio Kilo"
                                 >
 
@@ -197,6 +199,7 @@
                                 <v-text-field
                                     v-model="cotacao.valorMaiorOscilacao"
                                     solo
+                                    disabled
                                     label="Valor Oscilação Positiva Saca"
                                 >
 
@@ -214,6 +217,7 @@
                                 <v-text-field
                                     v-model="cotacao.valorMenorOscilacao"
                                     solo
+                                    disabled
                                     label="Valor Oscilação Negativa Saca"
                                 >
 
@@ -263,6 +267,7 @@
                             <v-text-field
                                 v-model="cotacao.QuantidadeSacasVenda"
                                 solo
+                                disabled
                                 label="Valor em Sacas"
                             >
 
@@ -307,6 +312,7 @@
                             <v-text-field
                                 v-model="cotacao.QuantidadeSacasArrendamento"
                                 solo
+                                disabled
                                 label="Valor em Sacas"
                             >
 

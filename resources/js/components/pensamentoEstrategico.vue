@@ -56,6 +56,7 @@
                             <v-text-field
                                 v-model="pensamento.areaDisponivelEmHa"
                                 solo
+                                disabled
                                 label="Área Disponível De Uso Em Há"
                             >
                             </v-text-field>
@@ -83,6 +84,7 @@
                             <v-text-field
                                 v-model="pensamento.pesoMedioSacaKgs"
                                 solo
+                                disabled
                                 label="Peso Médio Por Saca Em Kgs"
                             >
                             </v-text-field>
@@ -95,6 +97,7 @@
                             <v-text-field
                                 v-model="pensamento.estimativaColheitaKgs"
                                 solo
+                                disabled
                                 label="Estimativa Colheita Em Kgs"
                             >
                             </v-text-field>
@@ -114,6 +117,7 @@
                             <v-text-field
                                 v-model="pensamento.estimativaColheitasSacasHa"
                                 solo
+                                disabled
                                 label="Estimatima Colheita Scs/Ha"
                             >
                             </v-text-field>
@@ -126,6 +130,7 @@
                             <v-text-field
                                 v-model="pensamento.estimativaColheitaTotalSacas"
                                 solo
+                                disabled
                                 label="Estimativa Colheita Total Em Sacas"
                             >
                             </v-text-field>
@@ -143,6 +148,7 @@
                             <v-text-field
                                 v-model="pensamento.estimativaValorVenda"
                                 solo
+                                disabled
                                 label="Estimativa Valor De Venda Saca R$"
                             >
                             </v-text-field>

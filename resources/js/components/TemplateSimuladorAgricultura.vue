@@ -46,7 +46,7 @@ export default {
 
     methods: {
         Cotacoes (){
-            this.$router.push('cotacoes')
+            this.$router.push('culturasMercado')
         },
         Pensamento (){
             this.$router.push('pensamento')

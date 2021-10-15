@@ -1897,6 +1897,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'app',
@@ -1918,6 +1920,17 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Propriedades'
       }]
     };
+  },
+  methods: {
+    Sair: function Sair() {
+      var _this = this;
+
+      axios.post('sair', this.usuarioLogin).then(function (response) {
+        _this.usuarioLogado = response.data;
+
+        _this.$router.push('/');
+      });
+    }
   }
   /* <v-app dark id="inspire">
        <v-navigation-drawer
@@ -2016,7 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     Cotacoes: function Cotacoes() {
-      this.$router.push('cotacoes');
+      this.$router.push('culturasMercado');
     },
     Pensamento: function Pensamento() {
       this.$router.push('pensamento');
@@ -2413,6 +2426,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3397,12 +3416,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Navbar: _Navbar__WEBPACK_IMPORTED_MODULE_0__.default,
-    NavbarUsuario: function NavbarUsuario() {
-      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./templateUsuario.vue */ "./resources/js/components/templateUsuario.vue"));
+    NavbarSimulador: function NavbarSimulador() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue"));
     }
   },
   data: function data() {
@@ -4624,6 +4644,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43089,9 +43115,11 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("v-btn", { attrs: { icon: "" } }, [
-                    _vm._v("\n                Sair\n            ")
-                  ])
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" }, on: { click: _vm.Sair } },
+                    [_vm._v("\n\n                Sair\n            ")]
+                  )
                 ],
                 1
               ),
@@ -43886,7 +43914,11 @@ var render = function() {
                         { attrs: { cols: "12", lg: "6" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Valor Menor Oscilação" },
+                            attrs: {
+                              solo: "",
+                              disabled: "",
+                              label: "Valor Menor Oscilação"
+                            },
                             model: {
                               value: _vm.cotacao.valorOsciladoMenor,
                               callback: function($$v) {
@@ -43904,7 +43936,11 @@ var render = function() {
                         { attrs: { cols: "12", lg: "6" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Valor Maior Oscilação" },
+                            attrs: {
+                              solo: "",
+                              disabled: "",
+                              label: "Valor Maior Oscilação"
+                            },
                             model: {
                               value: _vm.cotacao.valorOsciladoMaior,
                               callback: function($$v) {
@@ -43988,7 +44024,11 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Preço Médio Kilo" },
+                            attrs: {
+                              solo: "",
+                              disabled: "",
+                              label: "Preço Médio Kilo"
+                            },
                             model: {
                               value: _vm.cotacao.precosMquiloindustrial,
                               callback: function($$v) {
@@ -44076,6 +44116,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Valor Oscilação Positiva Saca"
                             },
                             model: {
@@ -44101,6 +44142,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Valor Oscilação Negativa Saca"
                             },
                             model: {
@@ -44176,7 +44218,11 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Valor em Sacas" },
+                            attrs: {
+                              solo: "",
+                              disabled: "",
+                              label: "Valor em Sacas"
+                            },
                             model: {
                               value: _vm.cotacao.QuantidadeSacasVenda,
                               callback: function($$v) {
@@ -44260,7 +44306,11 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { solo: "", label: "Valor em Sacas" },
+                            attrs: {
+                              solo: "",
+                              disabled: "",
+                              label: "Valor em Sacas"
+                            },
                             model: {
                               value: _vm.cotacao.QuantidadeSacasArrendamento,
                               callback: function($$v) {
@@ -44673,6 +44723,8 @@ var render = function() {
   return _c(
     "v-app",
     [
+      _c("NavbarSimulador"),
+      _vm._v(" "),
       _c("v-data-table", {
         staticClass: "elevation-1",
         attrs: {
@@ -46308,6 +46360,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Área Disponível De Uso Em Há"
                             },
                             model: {
@@ -46358,6 +46411,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Peso Médio Por Saca Em Kgs"
                             },
                             model: {
@@ -46383,6 +46437,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Estimativa Colheita Em Kgs"
                             },
                             model: {
@@ -46415,6 +46470,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Estimatima Colheita Scs/Ha"
                             },
                             model: {
@@ -46441,6 +46497,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Estimativa Colheita Total Em Sacas"
                             },
                             model: {
@@ -46475,6 +46532,7 @@ var render = function() {
                           _c("v-text-field", {
                             attrs: {
                               solo: "",
+                              disabled: "",
                               label: "Estimativa Valor De Venda Saca R$"
                             },
                             model: {

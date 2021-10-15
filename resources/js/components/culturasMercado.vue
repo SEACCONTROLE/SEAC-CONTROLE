@@ -1,5 +1,6 @@
 <template>
     <v-app>
+        <NavbarSimulador></NavbarSimulador>
         <v-data-table
             :headers="headers"
             :items="culturas"
@@ -128,7 +129,7 @@
 import Navbar from "./Navbar";
 export default {
     components: {Navbar,
-        NavbarUsuario: () => import('./templateUsuario.vue')},
+        NavbarSimulador: () => import('./TemplateSimuladorAgricultura.vue')},
     data: () => ({
         dialog: false,
         dialogDelete: false,

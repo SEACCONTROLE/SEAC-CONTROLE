@@ -12,7 +12,9 @@
                     <v-icon>mdi-account</v-icon>
                 </v-btn>
 
-                <v-btn icon>
+                <v-btn icon
+                       @click="Sair">
+
                     Sair
                 </v-btn>
             </v-app-bar>
@@ -67,6 +69,16 @@ export default {
             { title: 'Propriedades' },
         ]
     }),
+
+    methods:{
+        Sair(){
+            axios.post('sair',this.usuarioLogin).then(response => {
+                this.usuarioLogado = response.data;
+                this.$router.push('/')
+
+            })
+        },
+    },
 
 
     /* <v-app dark id="inspire">
