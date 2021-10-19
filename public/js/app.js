@@ -1934,7 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   /* <v-app dark id="inspire">
-       <v-navigation-drawer
+        <v-navigation-drawer
           app
           permanent expand-on-hover
          floating  color="white"
@@ -1945,7 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
   /*<template>
   <div id="app">
   <v-app dark id="inspire">
-       <v-navigation-drawer
+        <v-navigation-drawer
           app
           permanent expand-on-hover
          floating  color="white"
@@ -2901,7 +2901,7 @@ __webpack_require__.r(__webpack_exports__);
                   this.$router.push('ciclo')
               })
           }
-       })
+        })
       */
 
       /*  axios.post('SalvarCotacoes',this.cotacao).then(response => {
@@ -2946,9 +2946,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-            })
+             })
            .finally(()=>{
-            })*/
+             })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -2991,16 +2991,16 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-              })
+               })
              .finally(()=>{
-              })*/
+               })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         /*axios.post('/cadastrarPropriedade', this.editedItem)
             .then(response=>{
-             })
+              })
             .finally(()=>{
-             })*/
+              })*/
         this.culturas.push(this.editedItem);
       }
 
@@ -4567,9 +4567,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-            })
+             })
            .finally(()=>{
-            })*/
+             })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -4612,16 +4612,16 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-              })
+               })
              .finally(()=>{
-              })*/
+               })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         /*axios.post('/cadastrarPropriedade', this.editedItem)
             .then(response=>{
-             })
+              })
             .finally(()=>{
-             })*/
+              })*/
         this.culturas.push(this.editedItem);
       }
 
@@ -4951,9 +4951,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-            })
+             })
            .finally(()=>{
-            })*/
+             })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -5001,9 +5001,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-              })
+               })
              .finally(()=>{
-              })*/
+               })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         this.pensamento.culturas = this.culturas;

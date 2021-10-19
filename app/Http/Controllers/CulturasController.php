@@ -15,7 +15,7 @@ class CulturasController extends Controller
     public function __construct()
     {
         $factory = (new Factory)
-            ->withServiceAccount(__DIR__.'\keySimuladorSEAC.json')
+            ->withServiceAccount(__DIR__.'/keySimuladorSEAC.json')
             ->withDatabaseUri('https://simuladorseac.firebaseio.com/');
 
         $this->database = $factory->createDatabase();
