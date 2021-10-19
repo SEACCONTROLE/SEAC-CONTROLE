@@ -216,7 +216,7 @@ export default {
 
         Cotacoes (item){
             axios.post('iniciarCotacao').then(response=> {
-                this.$router.push('cotacoes')
+                this.$router.push('culturasMercado')
             });
 
         },

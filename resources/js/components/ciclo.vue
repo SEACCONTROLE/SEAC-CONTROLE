@@ -203,7 +203,7 @@ export default {
 
         Pensamento (item){
             axios.post('iniciarPensamento').then(response=> {
-                this.$router.push('pensamento')
+                this.$router.push('culturasPensamento')
             });
 
         },

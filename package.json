@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "v-mask": "^2.2.4",
+        "vue-flag-icon": "^1.0.6",
         "vue-laravel-csrf": "^1.0.0",
         "vue-router": "^3.5.2",
         "vuetify": "^2.5.8",

@@ -1859,6 +1859,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'app',
@@ -1866,6 +1906,31 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Navbar: function Navbar() {
       return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./templatePadrao.vue */ "./resources/js/components/templatePadrao.vue"));
+    }
+  },
+  data: function data() {
+    return {
+      drawer: null,
+      items: [{
+        title: 'Home',
+        icon: 'mdi-view-dashboard'
+      }, {
+        title: 'Seleção'
+      }, {
+        title: 'Propriedades'
+      }]
+    };
+  },
+  //lista action vuetify
+  methods: {
+    Sair: function Sair() {
+      var _this = this;
+
+      axios.post('sair', this.usuarioLogin).then(function (response) {
+        _this.usuarioLogado = response.data;
+
+        _this.$router.push('/');
+      });
     }
   }
   /* <v-app dark id="inspire">
@@ -1965,7 +2030,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     Cotacoes: function Cotacoes() {
-      this.$router.push('cotacoes');
+      this.$router.push('culturasMercado');
     },
     Pensamento: function Pensamento() {
       this.$router.push('pensamento');
@@ -2278,7 +2343,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('iniciarPensamento').then(function (response) {
-        _this.$router.push('pensamento');
+        _this.$router.push('culturasPensamento');
       });
     },
     initialize: function initialize() {
@@ -2693,6 +2758,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2708,94 +2790,39 @@ __webpack_require__.r(__webpack_exports__);
       MaiorOscilacaoDolar: '',
       valorOsciladoMenor: '',
       valorOsciladoMaior: '',
+      precosmsacaindustrial: '',
+      precosMquiloindustrial: '',
+      pesoSacaKgs: '',
+      menoroscilacao: '',
+      maioroscilacao: '',
+      ValorHectareVenda: '',
+      QuantidadeSacasVenda: '',
+      ValorHectareArrendamento: '',
+      QuantidadeSacasArrendamento: '',
+      porcentagemValorArrendamento: '',
       valorMenorOscilacao: '',
       valorMaiorOscilacao: '',
       resultadoSalvar: '',
       dialog: false,
       dialogDelete: false,
-      headers: [{
-        text: 'Cultura',
-        align: 'start',
-        sortable: false,
-        value: 'name'
-      }, {
-        text: 'Preco Médio da Saca',
-        value: 'precosmsacaindustrial'
-      }, {
-        text: 'Preco Médio Quilo',
-        value: 'precosMquiloindustrial'
-      }, {
-        text: 'Peso Médio da Saca em Kgs',
-        value: 'pesoSacaKgs'
-      }, {
-        text: '% de Menor Oscilação',
-        value: 'menoroscilacao'
-      }, {
-        text: 'Valor da Menor Oscilação',
-        value: 'valorMenorOscilacao'
-      }, {
-        text: '% de Maior Oscilação',
-        value: 'maioroscilacao'
-      }, {
-        text: 'Valor da Maior Oscilação',
-        value: 'valorMaiorOscilacao'
-      }, {
-        text: 'Valor Do Hectare para Venda em R$',
-        value: 'ValorHectareVenda'
-      }, {
-        text: 'Quantidade de Sacas (Venda)',
-        value: 'QuantidadeSacasVenda'
-      }, {
-        text: 'Valor Hectare para Arrendamento Em %',
-        value: 'porcentagemValorArrendamento'
-      }, {
-        text: 'Valor Do Hectare para Arrendamento Em R$',
-        value: 'ValorHectareArrendamento'
-      }, {
-        text: 'Quantidade de Sacas (Arrendamento)',
-        value: 'QuantidadeSacasArrendamento'
-      }, {
-        text: 'Actions',
-        value: 'actions',
-        sortable: false
-      }],
-      culturas: [],
-      editedIndex: -1,
-      editedItem: {
-        name: '',
-        precosmsacaindustrial: '',
-        precosMquiloindustrial: '',
-        pesoSacaKgs: '',
-        menoroscilacao: '',
-        maioroscilacao: '',
-        ValorHectareVenda: '',
-        QuantidadeSacasVenda: '',
-        ValorHectareArrendamento: '',
-        QuantidadeSacasArrendamento: '',
-        porcentagemValorArrendamento: ''
-      },
-      defaultItem: {
-        name: '',
-        precosmsacaindustrial: '',
-        precosMquiloindustrial: '',
-        pesoSacaKgs: '',
-        menoroscilacao: '',
-        valorMenorOscilacao: '',
-        maioroscilacao: '',
-        valorMaiorOscilacao: '',
-        ValorHectareVenda: '',
-        QuantidadeSacasVenda: '',
-        ValorHectareArrendamento: '',
-        QuantidadeSacasArrendamento: '',
-        porcentagemValorArrendamento: ''
-      },
       cotacao: {
-        culturas: [],
         valorDolarDolar: '',
         MenorOscilacaoDolar: '',
         MaiorOscilacaoDolar: '',
         valorOsciladoMenor: '',
-        valorOsciladoMaior: ''
+        valorOsciladoMaior: '',
+        precosmsacaindustrial: '',
+        precosMquiloindustrial: '',
+        pesoSacaKgs: '',
+        menoroscilacao: '',
+        maioroscilacao: '',
+        ValorHectareVenda: '',
+        QuantidadeSacasVenda: '',
+        ValorHectareArrendamento: '',
+        QuantidadeSacasArrendamento: '',
+        porcentagemValorArrendamento: '',
+        valorMenorOscilacao: '',
+        valorMaiorOscilacao: ''
       },
       auxiliarCalculo: '',
       pesoMandar: ''
@@ -2829,42 +2856,69 @@ __webpack_require__.r(__webpack_exports__);
       // valorOsciladoMaior:'',
       cotacao['valorOsciladoMaior'] = +cotacao['valorDolarDolar'] + cotacao['valorDolarDolar'] * cotacao['MaiorOscilacaoDolar'] / 100;
     },
+    precoMedio: function precoMedio(cotacao) {
+      // precosmsacaindustrial: '',
+      // precosMquiloindustrial: '',
+      //     pesoSacaKgs: '',
+      //   menoroscilacao: '',
+      //  maioroscilacao: '',
+      // ValorHectareVenda: '',
+      //  QuantidadeSacasVenda:'',
+      // ValorHectareArrendamento: '',
+      // QuantidadeSacasArrendamento: '',
+      // porcentagemValorArrendamento: '',
+      //valorMenorOscilacao: '',
+      //  valorMaiorOscilacao: '',
+      cotacao['precosMquiloindustrial'] = cotacao['precosmsacaindustrial'] / cotacao['pesoSacaKgs'];
+    },
+    oscilacaoPositiva: function oscilacaoPositiva(cotacao) {
+      //this.editedItem['valorMaiorOscilacao'] = +this.editedItem['precosmsacaindustrial']+this.editedItem['precosmsacaindustrial']*(this.editedItem['maioroscilacao']/100)
+      cotacao['valorMaiorOscilacao'] = +cotacao['precosmsacaindustrial'] + cotacao['precosmsacaindustrial'] * (cotacao['maioroscilacao'] / 100);
+    },
+    oscilacaoNegativa: function oscilacaoNegativa(cotacao) {
+      cotacao['valorMenorOscilacao'] = +cotacao['precosmsacaindustrial'] + cotacao['precosmsacaindustrial'] * (cotacao['menoroscilacao'] / 100);
+    },
+    sacasVenda: function sacasVenda(cotacao) {
+      cotacao['QuantidadeSacasVenda'] = +cotacao['ValorHectareVenda'] / cotacao['precosmsacaindustrial'];
+    },
+    sacasArrendamento: function sacasArrendamento(cotacao) {
+      cotacao['QuantidadeSacasArrendamento'] = +cotacao['ValorHectareArrendamento'] / cotacao['precosmsacaindustrial'];
+    },
     SalvarCotacao: function SalvarCotacao() {
-      var _this = this;
+      //this.cotacao.culturas = this.culturas;
+      this.$router.push('ciclo');
+      /*
+      axios.post('verificarCotacaoCadastrada',this.cotacao).then(response => {
+          this.resultadoSalvar= response.data;
+          if(this.resultadoSalvar){
+              axios.post('SalvarCotacoes',this.cotacao).then(response => {
+                  this.resultadoSalvar= response.data;
+                  this.$router.push('ciclo')
+              })
+          }else{
+              axios.post('editarCotacao',this.cotacao).then(response => {
+                  this.resultadoSalvar= response.data;
+                  this.$router.push('ciclo')
+              })
+          }
+        })
+      */
 
-      this.cotacao.culturas = this.culturas;
-      axios.post('verificarCotacaoCadastrada', this.cotacao).then(function (response) {
-        _this.resultadoSalvar = response.data;
-
-        if (_this.resultadoSalvar) {
-          axios.post('SalvarCotacoes', _this.cotacao).then(function (response) {
-            _this.resultadoSalvar = response.data;
-
-            _this.$router.push('ciclo');
-          });
-        } else {
-          axios.post('editarCotacao', _this.cotacao).then(function (response) {
-            _this.resultadoSalvar = response.data;
-
-            _this.$router.push('ciclo');
-          });
-        }
-      });
       /*  axios.post('SalvarCotacoes',this.cotacao).then(response => {
             this.resultadoSalvar= response.data;
             this.$router.push('ciclo')
         })/*/
     },
     initialize: function initialize() {
-      var _this2 = this;
+      var _this = this;
 
       axios.post('culturas').then(function (response) {
-        _this2.culturasget = response.data;
+        _this.culturasget = response.data;
 
-        for (var i = 0; i < _this2.culturasget.length; i++) {
-          _this2.culturaspassar = {
-            name: _this2.culturasget[i]['nomeProduto']
-          }, _this2.culturas.push(_this2.culturaspassar);
+        for (var i = 0; i < _this.culturasget.length; i++) {
+          _this.culturaspassar = {
+            name: _this.culturasget[i]['nomeProduto']
+          }, _this.culturas.push(_this.culturaspassar);
         }
       }); //this.propriedades = [
       //    {
@@ -2899,21 +2953,21 @@ __webpack_require__.r(__webpack_exports__);
       this.closeDelete();
     },
     close: function close() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.dialog = false;
       this.$nextTick(function () {
-        _this3.editedItem = Object.assign({}, _this3.defaultItem);
-        _this3.editedIndex = -1;
+        _this2.editedItem = Object.assign({}, _this2.defaultItem);
+        _this2.editedIndex = -1;
       });
     },
     closeDelete: function closeDelete() {
-      var _this4 = this;
+      var _this3 = this;
 
       this.dialogDelete = false;
       this.$nextTick(function () {
-        _this4.editedItem = Object.assign({}, _this4.defaultItem);
-        _this4.editedIndex = -1;
+        _this3.editedItem = Object.assign({}, _this3.defaultItem);
+        _this3.editedIndex = -1;
       });
     },
     save: function save() {
@@ -3149,6 +3203,573 @@ __webpack_require__.r(__webpack_exports__);
     this.initialize();
   },
   methods: {
+    initialize: function initialize() {
+      var _this = this;
+
+      axios.post('culturas').then(function (response) {
+        _this.culturasget = response.data;
+
+        for (var i = 0; i < _this.culturasget.length; i++) {
+          _this.culturaspassar = {
+            name: _this.culturasget[i]['nomeProduto'],
+            cultivar: _this.culturasget[i]['variedadeCultivada']
+          }, _this.culturas.push(_this.culturaspassar);
+        }
+      }); //this.propriedades = [
+      //    {
+      //      name: 'Frozen Yogurt',
+      //    proprietarios: 159,
+      //  cpf: 6.0,
+      // },
+      //{
+      //  name: 'Ice cream sandwich',
+      //  proprietarios: 237,
+      //  cpf: 9.0,
+      // },
+      //]
+    },
+    editItem: function editItem(item) {
+      this.editedIndex = this.culturas.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      this.editedIndex = this.culturas.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialogDelete = true;
+    },
+    deleteItemConfirm: function deleteItemConfirm() {
+      axios.post('deletarCultura', this.editedItem).then(function (response) {})["finally"](function () {});
+      this.culturas.splice(this.editedIndex, 1);
+      this.closeDelete();
+    },
+    close: function close() {
+      var _this2 = this;
+
+      this.dialog = false;
+      this.$nextTick(function () {
+        _this2.editedItem = Object.assign({}, _this2.defaultItem);
+        _this2.editedIndex = -1;
+      });
+    },
+    closeDelete: function closeDelete() {
+      var _this3 = this;
+
+      this.dialogDelete = false;
+      this.$nextTick(function () {
+        _this3.editedItem = Object.assign({}, _this3.defaultItem);
+        _this3.editedIndex = -1;
+      });
+    },
+    save: function save(item) {
+      if (this.editedIndex > -1) {
+        this.culturasEditar.editItem = this.culturas[this.editedIndex];
+        this.culturasEditar.novoItem = this.editedItem;
+        axios.post('editarCultura', this.culturasEditar).then(function (response) {})["finally"](function () {});
+        Object.assign(this.culturas[this.editedIndex], this.editedItem);
+      } else {
+        axios.post('cadastrarCultura', this.editedItem).then(function (response) {})["finally"](function () {});
+        this.culturas.push(this.editedItem);
+      }
+
+      this.close();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasMercado.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasMercado.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Navbar: _Navbar__WEBPACK_IMPORTED_MODULE_0__.default,
+    NavbarSimulador: function NavbarSimulador() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue"));
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      dialogDelete: false,
+      headers: [{
+        text: 'Cultura',
+        align: 'start',
+        sortable: false,
+        value: 'name'
+      }, {
+        text: 'Cultivar',
+        value: 'cultivar'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
+      }],
+      culturas: [],
+      culturasget: [],
+      culturaspassar: [],
+      editedIndex: -1,
+      culturasEditar: {
+        editItem: '',
+        novoItem: ''
+      },
+      editedItem: {
+        name: ''
+      },
+      defaultItem: {
+        name: ''
+      }
+    };
+  },
+  computed: {
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Nova Cultura' : 'Edit Item';
+    }
+  },
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    dialogDelete: function dialogDelete(val) {
+      val || this.closeDelete();
+    }
+  },
+  created: function created() {
+    this.initialize();
+  },
+  methods: {
+    Cotacoes: function Cotacoes(item) {
+      var _this = this;
+
+      axios.post('iniciarCotacao').then(function (response) {
+        _this.$router.push('cotacoes');
+      });
+    },
+    initialize: function initialize() {
+      var _this2 = this;
+
+      axios.post('culturas').then(function (response) {
+        _this2.culturasget = response.data;
+
+        for (var i = 0; i < _this2.culturasget.length; i++) {
+          _this2.culturaspassar = {
+            name: _this2.culturasget[i]['nomeProduto'],
+            cultivar: _this2.culturasget[i]['variedadeCultivada']
+          }, _this2.culturas.push(_this2.culturaspassar);
+        }
+      }); //this.propriedades = [
+      //    {
+      //      name: 'Frozen Yogurt',
+      //    proprietarios: 159,
+      //  cpf: 6.0,
+      // },
+      //{
+      //  name: 'Ice cream sandwich',
+      //  proprietarios: 237,
+      //  cpf: 9.0,
+      // },
+      //]
+    },
+    editItem: function editItem(item) {
+      this.editedIndex = this.culturas.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      this.editedIndex = this.culturas.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialogDelete = true;
+    },
+    deleteItemConfirm: function deleteItemConfirm() {
+      axios.post('deletarCultura', this.editedItem).then(function (response) {})["finally"](function () {});
+      this.culturas.splice(this.editedIndex, 1);
+      this.closeDelete();
+    },
+    close: function close() {
+      var _this3 = this;
+
+      this.dialog = false;
+      this.$nextTick(function () {
+        _this3.editedItem = Object.assign({}, _this3.defaultItem);
+        _this3.editedIndex = -1;
+      });
+    },
+    closeDelete: function closeDelete() {
+      var _this4 = this;
+
+      this.dialogDelete = false;
+      this.$nextTick(function () {
+        _this4.editedItem = Object.assign({}, _this4.defaultItem);
+        _this4.editedIndex = -1;
+      });
+    },
+    save: function save(item) {
+      if (this.editedIndex > -1) {
+        this.culturasEditar.editItem = this.culturas[this.editedIndex];
+        this.culturasEditar.novoItem = this.editedItem;
+        axios.post('editarCultura', this.culturasEditar).then(function (response) {})["finally"](function () {});
+        Object.assign(this.culturas[this.editedIndex], this.editedItem);
+      } else {
+        axios.post('cadastrarCultura', this.editedItem).then(function (response) {})["finally"](function () {});
+        this.culturas.push(this.editedItem);
+      }
+
+      this.close();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasPensamento.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasPensamento.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    NavbarSimulador: function NavbarSimulador() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue"));
+    }
+  },
+  data: function data() {
+    return {
+      dialog: false,
+      dialogDelete: false,
+      headers: [{
+        text: 'Cultura',
+        align: 'start',
+        sortable: false,
+        value: 'name'
+      }, {
+        text: 'Cultivar',
+        value: 'cultivar'
+      }, {
+        text: 'Id do Talhão',
+        value: 'idTalhao'
+      }, {
+        text: 'Sistema de Plantio',
+        value: 'sistemaPlantio'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
+      }],
+      culturas: [],
+      culturasget: [],
+      culturaspassar: [],
+      editedIndex: -1,
+      culturasEditar: {
+        editItem: '',
+        novoItem: ''
+      },
+      editedItem: {
+        name: '',
+        cultivar: '',
+        idTalhao: '',
+        sistemaPlantio: ''
+      },
+      defaultItem: {
+        name: '',
+        cultivar: '',
+        idTalhao: '',
+        sistemaPlantio: ''
+      }
+    };
+  },
+  computed: {
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Nova Cultura' : 'Edit Item';
+    }
+  },
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    dialogDelete: function dialogDelete(val) {
+      val || this.closeDelete();
+    }
+  },
+  created: function created() {
+    this.initialize();
+  },
+  methods: {
+    pensamento: function pensamento(item) {
+      this.$router.push('pensamento');
+    },
     initialize: function initialize() {
       var _this = this;
 
@@ -3596,7 +4217,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('iniciarCotacao').then(function (response) {
-        _this.$router.push('cotacoes');
+        _this.$router.push('culturasMercado');
       });
     },
     initialize: function initialize() {
@@ -3667,6 +4288,341 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         axios.post('/cadastrarPropriedade', this.editedItem).then(function (response) {})["finally"](function () {});
         this.propriedades.push(this.editedItem);
+      }
+
+      this.close();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mercadoTerraNua.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mercadoTerraNua.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Navbar: _Navbar__WEBPACK_IMPORTED_MODULE_0__.default,
+    NavbarSimulador: function NavbarSimulador() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue"));
+    }
+  },
+  data: function data(vm) {
+    return {
+      valorDolarDolar: '',
+      MenorOscilacaoDolar: '',
+      MaiorOscilacaoDolar: '',
+      valorOsciladoMenor: '',
+      valorOsciladoMaior: '',
+      valorMenorOscilacao: '',
+      valorMaiorOscilacao: '',
+      resultadoSalvar: '',
+      dialog: false,
+      dialogDelete: false,
+      cotacao: {
+        valorDolarDolar: '',
+        MenorOscilacaoDolar: '',
+        MaiorOscilacaoDolar: '',
+        valorOsciladoMenor: '',
+        valorOsciladoMaior: '',
+        precosmsacaindustrial: '',
+        precosMquiloindustrial: '',
+        pesoSacaKgs: '',
+        menoroscilacao: '',
+        maioroscilacao: '',
+        ValorHectareVenda: '',
+        QuantidadeSacasVenda: '',
+        ValorHectareArrendamento: '',
+        QuantidadeSacasArrendamento: '',
+        porcentagemValorArrendamento: ''
+      },
+      auxiliarCalculo: '',
+      pesoMandar: ''
+    };
+  },
+  computed: {
+    formTitle: function formTitle() {
+      return this.editedIndex === -1 ? 'Cotação' : 'Edit Item';
+    }
+  },
+  watch: {
+    dialog: function dialog(val) {
+      val || this.close();
+    },
+    dialogDelete: function dialogDelete(val) {
+      val || this.closeDelete();
+    }
+  },
+  created: function created() {
+    this.initialize();
+  },
+  methods: {
+    dolar: function dolar(cotacao) {
+      cotacao['valorOsciladoMenor'] = +cotacao['valorDolarDolar'] + cotacao['valorDolarDolar'] * cotacao['MenorOscilacaoDolar'] / 100;
+    },
+    dolar2: function dolar2(cotacao) {
+      //  valorDolarDolar: '',
+      //MenorOscilacaoDolar: '',
+      //  MaiorOscilacaoDolar: '',
+      //  valorOsciladoMenor:'',
+      // valorOsciladoMaior:'',
+      cotacao['valorOsciladoMaior'] = +cotacao['valorDolarDolar'] + cotacao['valorDolarDolar'] * cotacao['MaiorOscilacaoDolar'] / 100;
+    },
+    sacasVenda: function sacasVenda(cotacao) {
+      cotacao['QuantidadeSacasVenda'] = +cotacao['ValorHectareVenda'] / cotacao['precosmsacaindustrial'];
+    },
+    sacasArrendamento: function sacasArrendamento(cotacao) {
+      cotacao['QuantidadeSacasArrendamento'] = +cotacao['ValorHectareArrendamento'] / cotacao['precosmsacaindustrial'];
+    },
+    SalvarCotacao: function SalvarCotacao() {
+      var _this = this;
+
+      this.cotacao.culturas = this.culturas;
+      axios.post('verificarCotacaoCadastrada', this.cotacao).then(function (response) {
+        _this.resultadoSalvar = response.data;
+
+        if (_this.resultadoSalvar) {
+          axios.post('SalvarCotacoes', _this.cotacao).then(function (response) {
+            _this.resultadoSalvar = response.data;
+
+            _this.$router.push('ciclo');
+          });
+        } else {
+          axios.post('editarCotacao', _this.cotacao).then(function (response) {
+            _this.resultadoSalvar = response.data;
+
+            _this.$router.push('ciclo');
+          });
+        }
+      });
+      /*  axios.post('SalvarCotacoes',this.cotacao).then(response => {
+            this.resultadoSalvar= response.data;
+            this.$router.push('ciclo')
+        })/*/
+    },
+    initialize: function initialize() {
+      var _this2 = this;
+
+      axios.post('culturas').then(function (response) {
+        _this2.culturasget = response.data;
+
+        for (var i = 0; i < _this2.culturasget.length; i++) {
+          _this2.culturaspassar = {
+            name: _this2.culturasget[i]['nomeProduto']
+          }, _this2.culturas.push(_this2.culturaspassar);
+        }
+      }); //this.propriedades = [
+      //    {
+      //      name: 'Frozen Yogurt',
+      //    proprietarios: 159,
+      //  cpf: 6.0,
+      // },
+      //{
+      //  name: 'Ice cream sandwich',
+      //  proprietarios: 237,
+      //  cpf: 9.0,
+      // },
+      //]
+    },
+    editItem: function editItem(item) {
+      this.editedIndex = this.culturas.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog = true;
+    },
+    deleteItem: function deleteItem(item) {
+      this.editedIndex = this.culturas.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialogDelete = true;
+    },
+    deleteItemConfirm: function deleteItemConfirm() {
+      /* axios.post('/deletarPropriedade', this.editedItem)
+           .then(response=>{
+             })
+           .finally(()=>{
+             })*/
+      this.culturas.splice(this.editedIndex, 1);
+      this.closeDelete();
+    },
+    close: function close() {
+      var _this3 = this;
+
+      this.dialog = false;
+      this.$nextTick(function () {
+        _this3.editedItem = Object.assign({}, _this3.defaultItem);
+        _this3.editedIndex = -1;
+      });
+    },
+    closeDelete: function closeDelete() {
+      var _this4 = this;
+
+      this.dialogDelete = false;
+      this.$nextTick(function () {
+        _this4.editedItem = Object.assign({}, _this4.defaultItem);
+        _this4.editedIndex = -1;
+      });
+    },
+    save: function save() {
+      //precosmsacaindustrial: '',
+      //  precosMquiloindustrial: '',
+      //pesoSacaKgs: '',
+      // menoroscilacao: '',
+      // maioroscilacao: '',
+      // ValorHectareVenda: '',
+      // QuantidadeSacasVenda:'',
+      // ValorHectareArrendamento: '',
+      // QuantidadeSacasArrendamento: '',
+      // porcentagemValorArrendamento: '',
+      this.editedItem['precosMquiloindustrial'] = this.editedItem['precosmsacaindustrial'] / this.editedItem['pesoSacaKgs'];
+      this.editedItem['valorMenorOscilacao'] = +this.editedItem['precosmsacaindustrial'] + this.editedItem['precosmsacaindustrial'] * (this.editedItem['menoroscilacao'] / 100);
+      this.editedItem['valorMaiorOscilacao'] = +this.editedItem['precosmsacaindustrial'] + this.editedItem['precosmsacaindustrial'] * (this.editedItem['maioroscilacao'] / 100);
+      this.editedItem['QuantidadeSacasVenda'] = +this.editedItem['ValorHectareVenda'] / this.editedItem['precosmsacaindustrial'];
+      this.editedItem['QuantidadeSacasArrendamento'] = +this.editedItem['ValorHectareArrendamento'] / this.editedItem['precosmsacaindustrial'];
+      axios.post('mandarPeso', this.editedItem).then(function (response) {});
+
+      if (this.editedIndex > -1) {
+        /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
+             .then(response=>{
+               })
+             .finally(()=>{
+               })*/
+        Object.assign(this.culturas[this.editedIndex], this.editedItem);
+      } else {
+        /*axios.post('/cadastrarPropriedade', this.editedItem)
+            .then(response=>{
+              })
+            .finally(()=>{
+              })*/
+        this.culturas.push(this.editedItem);
       }
 
       this.close();
@@ -3885,12 +4841,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -3902,92 +4852,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       dialog: false,
       dialogDelete: false,
-      headers: [{
-        text: 'Cultura',
-        align: 'start',
-        sortable: false,
-        value: 'name'
-      }, {
-        text: 'Cultivar',
-        value: 'cultivar'
-      }, {
-        text: 'Identificação do Talhão',
-        value: 'idTalhao'
-      }, {
-        text: 'Sistema De Plantio',
-        value: 'sistemaPlantio'
-      }, {
-        text: 'Área Total Talhão/Há',
-        value: 'areaTotalTalhao'
-      }, {
-        text: 'Área Disponível Talhão Para Uso %',
-        value: 'areaDisponivelTalhao'
-      }, {
-        text: 'Área Disponível De Uso Em Há',
-        value: 'areaDisponivelEmHa'
-      }, {
-        text: 'Estimativa De Kgs/Há',
-        value: 'estimativaKgs'
-      }, {
-        text: 'Peso Médio Por Saca Em Kgs',
-        value: 'pesoMedioSacaKgs'
-      }, {
-        text: 'Estimativa Colheita Em Kgs',
-        value: 'estimativaColheitaKgs'
-      }, {
-        text: 'Estimatima Colheita Scs/Ha',
-        value: 'estimativaColheitasSacasHa'
-      }, {
-        text: 'Estimativa Colheita Total Em Sacas',
-        value: 'estimativaColheitaTotalSacas'
-      }, {
-        text: 'Estimativa Valor De Venda Saca R$',
-        value: 'estimativaValorSacaRS'
-      }, {
-        text: 'Desejo De Margem Liquida em %/Sc',
-        value: 'desejoMargemLiquida'
-      }, {
-        text: 'Actions',
-        value: 'actions',
-        sortable: false
-      }],
-      culturas: [],
-      editedIndex: -1,
-      editedItem: {
-        name: '',
-        cultivar: '',
-        idTalhao: '',
-        sistemaPlantio: '',
-        areaTotalTalhao: '',
-        areaDisponivelTalhao: '',
-        areaDisponivelEmHa: '',
-        estimativaKgs: '',
-        pesoMedioSacaKgs: '',
-        estimativaColheitaKgs: '',
-        estimativaColheitasSacasHa: '',
-        estimativaColheitaTotalSacas: '',
-        estimativaValorSacaRS: '',
-        desejoMargemLiquida: ''
-      },
-      defaultItem: {
-        name: '',
-        cultivar: '',
-        idTalhao: '',
-        sistemaPlantio: '',
-        areaTotalTalhao: '',
-        areaDisponivelTalhao: '',
-        areaDisponivelEmHa: '',
-        estimativaKgs: '',
-        pesoMedioSacaKgs: '',
-        estimativaColheitaKgs: '',
-        estimativaColheitasSacasHa: '',
-        estimativaColheitaTotalSacas: '',
-        desejoMargemLiquida: ''
-      },
-      pesoMedioSaca: '',
-      precoSaca: '',
       pensamento: {
-        culturas: []
+        areaTotalTalhao: '',
+        areaDisponivelTalhao: '',
+        areaDisponivelEmHa: '',
+        estimativaKgs: '',
+        pesoMedioSacaKgs: '',
+        estimativaColheitaKgs: '',
+        estimativaColheitasSacasHa: '',
+        estimativaColheitaTotalSacas: '',
+        desejoMargemLiquida: '',
+        estimativaValorVenda: ''
       }
     };
   },
@@ -4008,6 +4883,9 @@ __webpack_require__.r(__webpack_exports__);
     this.initialize();
   },
   methods: {
+    areaDisponivelHa: function areaDisponivelHa(pensamento) {
+      pensamento['areaDisponivelEmHa'] = pensamento['areaTotalTalhao'] * pensamento['areaDisponivelTalhao'] / 100;
+    },
     initialize: function initialize() {
       var _this = this;
 
@@ -4361,6 +5239,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
@@ -4445,6 +5325,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pensamentoEstrategico_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/pensamentoEstrategico.vue */ "./resources/js/components/pensamentoEstrategico.vue");
 /* harmony import */ var _components_templateUsuario_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/templateUsuario.vue */ "./resources/js/components/templateUsuario.vue");
 /* harmony import */ var _components_TemplateSimuladorAgricultura_vue__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue");
+/* harmony import */ var _components_home_vue__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/home.vue */ "./resources/js/components/home.vue");
+/* harmony import */ var _components_mercadoTerraNua_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/mercadoTerraNua.vue */ "./resources/js/components/mercadoTerraNua.vue");
+/* harmony import */ var _components_culturasMercado_vue__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/culturasMercado.vue */ "./resources/js/components/culturasMercado.vue");
+/* harmony import */ var _components_culturasPensamento_vue__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/culturasPensamento.vue */ "./resources/js/components/culturasPensamento.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -4486,6 +5370,13 @@ vue__WEBPACK_IMPORTED_MODULE_2__.default.component('template-usuario', __webpack
 vue__WEBPACK_IMPORTED_MODULE_2__.default.component('template-simulador', __webpack_require__(/*! ./components/TemplateSimuladorAgricultura.vue */ "./resources/js/components/TemplateSimuladorAgricultura.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_2__.default.component('token-use', __webpack_require__(/*! ./components/tokenComponent.vue */ "./resources/js/components/tokenComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_2__.default.component('ciclo', __webpack_require__(/*! ./components/ciclo.vue */ "./resources/js/components/ciclo.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_2__.default.component('terraNua', __webpack_require__(/*! ./components/mercadoTerraNua.vue */ "./resources/js/components/mercadoTerraNua.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_2__.default.component('culturasMercado', __webpack_require__(/*! ./components/culturasMercado.vue */ "./resources/js/components/culturasMercado.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_2__.default.component('culturasPensamento', __webpack_require__(/*! ./components/culturasPensamento.vue */ "./resources/js/components/culturasPensamento.vue").default);
+
+
+
+
 
 
 
@@ -4517,6 +5408,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
     path: '/culturas',
     component: _components_culturas_vue__WEBPACK_IMPORTED_MODULE_7__.default
   }, {
+    path: '/culturasMercado',
+    component: _components_culturasMercado_vue__WEBPACK_IMPORTED_MODULE_18__.default
+  }, {
+    path: '/culturasPensamento',
+    component: _components_culturasPensamento_vue__WEBPACK_IMPORTED_MODULE_19__.default
+  }, {
+    path: '/terraNua',
+    component: _components_mercadoTerraNua_vue__WEBPACK_IMPORTED_MODULE_17__.default
+  }, {
     path: '/ciclo',
     component: _components_ciclo_vue__WEBPACK_IMPORTED_MODULE_8__.default
   }, {
@@ -4534,9 +5434,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
     component: _components_templatePadrao_vue__WEBPACK_IMPORTED_MODULE_9__.default
   }, {
     path: '',
-    component: function component() {
-      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/home.vue */ "./resources/js/components/home.vue"));
-    },
+    component: _components_home_vue__WEBPACK_IMPORTED_MODULE_16__.default,
     name: 'home'
   }]
 });
@@ -41226,6 +42124,84 @@ component.options.__file = "resources/js/components/culturas.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/culturasMercado.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/culturasMercado.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _culturasMercado_vue_vue_type_template_id_d5f1b502___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./culturasMercado.vue?vue&type=template&id=d5f1b502& */ "./resources/js/components/culturasMercado.vue?vue&type=template&id=d5f1b502&");
+/* harmony import */ var _culturasMercado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./culturasMercado.vue?vue&type=script&lang=js& */ "./resources/js/components/culturasMercado.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _culturasMercado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _culturasMercado_vue_vue_type_template_id_d5f1b502___WEBPACK_IMPORTED_MODULE_0__.render,
+  _culturasMercado_vue_vue_type_template_id_d5f1b502___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/culturasMercado.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/culturasPensamento.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/culturasPensamento.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _culturasPensamento_vue_vue_type_template_id_85d02a04___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./culturasPensamento.vue?vue&type=template&id=85d02a04& */ "./resources/js/components/culturasPensamento.vue?vue&type=template&id=85d02a04&");
+/* harmony import */ var _culturasPensamento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./culturasPensamento.vue?vue&type=script&lang=js& */ "./resources/js/components/culturasPensamento.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _culturasPensamento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _culturasPensamento_vue_vue_type_template_id_85d02a04___WEBPACK_IMPORTED_MODULE_0__.render,
+  _culturasPensamento_vue_vue_type_template_id_85d02a04___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/culturasPensamento.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/home.vue":
 /*!******************************************!*\
   !*** ./resources/js/components/home.vue ***!
@@ -41300,6 +42276,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/listaPropriedade.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/mercadoTerraNua.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/mercadoTerraNua.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mercadoTerraNua_vue_vue_type_template_id_9063ae9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mercadoTerraNua.vue?vue&type=template&id=9063ae9c& */ "./resources/js/components/mercadoTerraNua.vue?vue&type=template&id=9063ae9c&");
+/* harmony import */ var _mercadoTerraNua_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mercadoTerraNua.vue?vue&type=script&lang=js& */ "./resources/js/components/mercadoTerraNua.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _mercadoTerraNua_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _mercadoTerraNua_vue_vue_type_template_id_9063ae9c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _mercadoTerraNua_vue_vue_type_template_id_9063ae9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/mercadoTerraNua.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -41595,6 +42610,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/culturasMercado.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/culturasMercado.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasMercado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./culturasMercado.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasMercado.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasMercado_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/culturasPensamento.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/culturasPensamento.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasPensamento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./culturasPensamento.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasPensamento.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasPensamento_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/home.vue?vue&type=script&lang=js&":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/home.vue?vue&type=script&lang=js& ***!
@@ -41624,6 +42671,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_listaPropriedade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./listaPropriedade.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/listaPropriedade.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_listaPropriedade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/mercadoTerraNua.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/mercadoTerraNua.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_mercadoTerraNua_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./mercadoTerraNua.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mercadoTerraNua.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_mercadoTerraNua_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -41826,6 +42889,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/culturasMercado.vue?vue&type=template&id=d5f1b502&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/culturasMercado.vue?vue&type=template&id=d5f1b502& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasMercado_vue_vue_type_template_id_d5f1b502___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasMercado_vue_vue_type_template_id_d5f1b502___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasMercado_vue_vue_type_template_id_d5f1b502___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./culturasMercado.vue?vue&type=template&id=d5f1b502& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasMercado.vue?vue&type=template&id=d5f1b502&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/culturasPensamento.vue?vue&type=template&id=85d02a04&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/culturasPensamento.vue?vue&type=template&id=85d02a04& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasPensamento_vue_vue_type_template_id_85d02a04___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasPensamento_vue_vue_type_template_id_85d02a04___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_culturasPensamento_vue_vue_type_template_id_85d02a04___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./culturasPensamento.vue?vue&type=template&id=85d02a04& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasPensamento.vue?vue&type=template&id=85d02a04&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/home.vue?vue&type=template&id=fa6affac&":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/home.vue?vue&type=template&id=fa6affac& ***!
@@ -41856,6 +42953,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listaPropriedade_vue_vue_type_template_id_5b9ff6d1___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_listaPropriedade_vue_vue_type_template_id_5b9ff6d1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./listaPropriedade.vue?vue&type=template&id=5b9ff6d1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/listaPropriedade.vue?vue&type=template&id=5b9ff6d1&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/mercadoTerraNua.vue?vue&type=template&id=9063ae9c&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/mercadoTerraNua.vue?vue&type=template&id=9063ae9c& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mercadoTerraNua_vue_vue_type_template_id_9063ae9c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mercadoTerraNua_vue_vue_type_template_id_9063ae9c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mercadoTerraNua_vue_vue_type_template_id_9063ae9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./mercadoTerraNua.vue?vue&type=template&id=9063ae9c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mercadoTerraNua.vue?vue&type=template&id=9063ae9c&");
 
 
 /***/ }),
@@ -41971,12 +43085,129 @@ var render = function() {
           _c(
             "v-main",
             [
-              _c("Navbar"),
+              _c(
+                "v-app-bar",
+                {
+                  attrs: {
+                    app: "",
+                    color: "#1abc9c",
+                    dark: "",
+                    "clipped-left": ""
+                  }
+                },
+                [
+                  _c("v-app-bar-nav-icon", {
+                    on: {
+                      click: function($event) {
+                        _vm.drawer = !_vm.drawer
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("v-toolbar-title", [_vm._v("Controllar")]),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" } },
+                    [_c("v-icon", [_vm._v("mdi-account")])],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-btn",
+                    { attrs: { icon: "" }, on: { click: _vm.Sair } },
+                    [_vm._v("\n\n                Sair\n            ")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-navigation-drawer",
+                {
+                  attrs: {
+                    app: "",
+                    permanent: "",
+                    "expand-on-hover": "",
+                    color: "#2c3e50"
+                  },
+                  model: {
+                    value: _vm.drawer,
+                    callback: function($$v) {
+                      _vm.drawer = $$v
+                    },
+                    expression: "drawer"
+                  }
+                },
+                [
+                  _c(
+                    "v-list",
+                    { attrs: { nav: "" } },
+                    _vm._l(_vm.items, function(item) {
+                      return _c(
+                        "v-list-item",
+                        { key: item.title, attrs: { link: "" } },
+                        [
+                          _c(
+                            "v-list-item-icon",
+                            [
+                              _c("v-icon", { attrs: { color: "white" } }, [
+                                _vm._v(_vm._s(item.icon))
+                              ])
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "v-list-item-content",
+                            [
+                              _c("v-list-item-title", [
+                                _c("div", { style: { color: "white" } }, [
+                                  _vm._v(
+                                    "\n                            " +
+                                      _vm._s(item.title) +
+                                      "\n                            "
+                                  )
+                                ])
+                              ])
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    }),
+                    1
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
                 "v-container",
-                { attrs: { fluid: "" } },
-                [_c("router-view")],
+                { staticClass: "grey lighten-5", attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-layout",
+                    [
+                      _c(
+                        "v-flex",
+                        [
+                          _c(
+                            "v-container",
+                            { attrs: { fluid: "" } },
+                            [_c("router-view")],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
                 1
               )
             ],
@@ -42051,7 +43282,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-footer",
-    { attrs: { color: "#005197", padless: "" } },
+    { attrs: { color: "#1abc9c", padless: "" } },
     [
       _c(
         "v-row",
@@ -42064,7 +43295,7 @@ var render = function() {
               attrs: { color: "white", text: "", rounded: "" },
               on: { click: _vm.Cotacoes }
             },
-            [_vm._v("\n            Cotações\n        ")]
+            [_vm._v("\n            Simulador de Mercado\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -42567,19 +43798,27 @@ var render = function() {
               _c("token-use"),
               _vm._v(" "),
               _c(
-                "v-row",
+                "v-container",
+                { attrs: { fluid: "" } },
                 [
-                  _c("v-col", { attrs: { cols: "12", lg: "12" } }, [
-                    _c("h1", { staticClass: "text-center" }, [
-                      _vm._v("Cotações")
-                    ])
-                  ])
+                  _c(
+                    "v-row",
+                    [
+                      _c("v-col", { attrs: { cols: "12", lg: "12" } }, [
+                        _c("h1", { staticClass: "text-center" }, [
+                          _vm._v("Valor Dólar")
+                        ])
+                      ])
+                    ],
+                    1
+                  )
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
                 "v-container",
+                { attrs: { fluid: "" } },
                 [
                   _c(
                     "v-row",
@@ -42590,7 +43829,7 @@ var render = function() {
                         { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { label: "Valor em Dolar" },
+                            attrs: { outlined: "", label: "Valor em Dolar" },
                             model: {
                               value: _vm.cotacao.valorDolarDolar,
                               callback: function($$v) {
@@ -42605,10 +43844,13 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "3" } },
+                        { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { label: "Porcentagem da Menor Oscilação" },
+                            attrs: {
+                              outlined: "",
+                              label: "Porcentagem da Menor Oscilação"
+                            },
                             on: {
                               keyup: function($event) {
                                 return _vm.dolar(_vm.cotacao)
@@ -42632,10 +43874,13 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "3" } },
+                        { attrs: { cols: "12", lg: "4" } },
                         [
                           _c("v-text-field", {
-                            attrs: { label: "Porcentagem da Maior Oscilação" },
+                            attrs: {
+                              outlined: "",
+                              label: "Porcentagem da Maior Oscilação"
+                            },
                             on: {
                               keyup: function($event) {
                                 return _vm.dolar2(_vm.cotacao)
@@ -42666,64 +43911,44 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "12", lg: "6" } },
                         [
-                          _c(
-                            "v-flex",
-                            { attrs: { xs12: "", sm6: "" } },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  readonly: "",
-                                  label: "Valor Menor Oscilação"
-                                },
-                                model: {
-                                  value: _vm.cotacao.valorOsciladoMenor,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.cotacao,
-                                      "valorOsciladoMenor",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "cotacao.valorOsciladoMenor"
-                                }
-                              })
-                            ],
-                            1
-                          )
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Valor Menor Oscilação"
+                            },
+                            model: {
+                              value: _vm.cotacao.valorOsciladoMenor,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "valorOsciladoMenor", $$v)
+                              },
+                              expression: "cotacao.valorOsciladoMenor"
+                            }
+                          })
                         ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "12", lg: "6" } },
                         [
-                          _c(
-                            "v-flex",
-                            { attrs: { xs12: "", sm6: "" } },
-                            [
-                              _c("v-text-field", {
-                                attrs: {
-                                  readonly: "",
-                                  label: "Valor Maior Oscilação"
-                                },
-                                model: {
-                                  value: _vm.cotacao.valorOsciladoMaior,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.cotacao,
-                                      "valorOsciladoMaior",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "cotacao.valorOsciladoMaior"
-                                }
-                              })
-                            ],
-                            1
-                          )
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Valor Maior Oscilação"
+                            },
+                            model: {
+                              value: _vm.cotacao.valorOsciladoMaior,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "valorOsciladoMaior", $$v)
+                              },
+                              expression: "cotacao.valorOsciladoMaior"
+                            }
+                          })
                         ],
                         1
                       )
@@ -42735,583 +43960,372 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "v-row",
+                "v-container",
+                { attrs: { fluid: "" } },
                 [
                   _c(
-                    "v-col",
-                    { attrs: { cols: "12", lg: "12" } },
+                    "v-row",
                     [
-                      _c("v-data-table", {
-                        staticClass: "elevation-1",
-                        attrs: {
-                          headers: _vm.headers,
-                          items: _vm.culturas,
-                          "sort-by": "precoMedioSacaIndustrial"
-                        },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "top",
-                            fn: function() {
-                              return [
-                                _c(
-                                  "v-toolbar",
-                                  { attrs: { flat: "" } },
-                                  [
-                                    _c("v-toolbar-title", [
-                                      _vm._v("Valores Cereais e Oscilações")
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("v-divider", {
-                                      staticClass: "mx-4",
-                                      attrs: { inset: "", vertical: "" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("v-spacer"),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-dialog",
-                                      {
-                                        attrs: { "max-width": "1000px" },
-                                        scopedSlots: _vm._u([
-                                          {
-                                            key: "activator",
-                                            fn: function(ref) {
-                                              var on = ref.on
-                                              var attrs = ref.attrs
-                                              return [
-                                                _c(
-                                                  "v-btn",
-                                                  _vm._g(
-                                                    _vm._b(
-                                                      {
-                                                        staticClass: "mb-2",
-                                                        attrs: {
-                                                          color: "#124057",
-                                                          dark: ""
-                                                        }
-                                                      },
-                                                      "v-btn",
-                                                      attrs,
-                                                      false
-                                                    ),
-                                                    on
-                                                  ),
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                        Cadastrar Nova Oscilação de Preços\n                                    "
-                                                    )
-                                                  ]
-                                                )
-                                              ]
-                                            }
-                                          }
-                                        ]),
-                                        model: {
-                                          value: _vm.dialog,
-                                          callback: function($$v) {
-                                            _vm.dialog = $$v
-                                          },
-                                          expression: "dialog"
-                                        }
-                                      },
-                                      [
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card",
-                                          [
-                                            _c("v-card-title", [
-                                              _c(
-                                                "span",
-                                                { staticClass: "text-h5" },
-                                                [_vm._v(_vm._s(_vm.formTitle))]
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-card-text",
-                                              [
-                                                _c(
-                                                  "v-container",
-                                                  [
-                                                    _c(
-                                                      "v-row",
-                                                      [
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "6",
-                                                              sm: "6",
-                                                              md: "12"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label: "Cultura"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .name,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "name",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.name"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              sm: "6",
-                                                              md: "6"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "Preço Médio da Saca"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .precosmsacaindustrial,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "precosmsacaindustrial",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.precosmsacaindustrial"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              sm: "6",
-                                                              md: "6"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "Peso Médio da Saca em Kgs"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .pesoSacaKgs,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "pesoSacaKgs",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.pesoSacaKgs"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        )
-                                                      ],
-                                                      1
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "v-row",
-                                                      [
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              sm: "6",
-                                                              md: "6"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "% de Menor Oscilação"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .menoroscilacao,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "menoroscilacao",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.menoroscilacao"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              sm: "6",
-                                                              md: "6"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "% de Maior Oscilação"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .maioroscilacao,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "maioroscilacao",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.maioroscilacao"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        )
-                                                      ],
-                                                      1
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c("v-toolbar-title", [
-                                                      _vm._v("Valor Terra Nua")
-                                                    ]),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "v-row",
-                                                      [
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              lg: "8"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "Valor Hectare para venda em R$"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .ValorHectareVenda,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "ValorHectareVenda",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.ValorHectareVenda"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              lg: "8"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "Valor Hectare para Arrendamento em R$"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .ValorHectareArrendamento,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "ValorHectareArrendamento",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.ValorHectareArrendamento"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "v-col",
-                                                          {
-                                                            attrs: {
-                                                              cols: "12",
-                                                              lg: "8"
-                                                            }
-                                                          },
-                                                          [
-                                                            _c("v-text-field", {
-                                                              attrs: {
-                                                                label:
-                                                                  "Valor Hectare para Arrendamento Em %"
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.editedItem
-                                                                    .porcentagemValorArrendamento,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.editedItem,
-                                                                    "porcentagemValorArrendamento",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "editedItem.porcentagemValorArrendamento"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        )
-                                                      ],
-                                                      1
-                                                    )
-                                                  ],
-                                                  1
-                                                )
-                                              ],
-                                              1
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-card-actions",
-                                              [
-                                                _c("v-spacer"),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      color: "blue darken-1",
-                                                      text: ""
-                                                    },
-                                                    on: { click: _vm.close }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            Cancel\n                                        "
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      color: "blue darken-1",
-                                                      text: ""
-                                                    },
-                                                    on: { click: _vm.save }
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                                            Save\n                                        "
-                                                    )
-                                                  ]
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "v-dialog",
-                                      {
-                                        attrs: { "max-width": "500px" },
-                                        model: {
-                                          value: _vm.dialogDelete,
-                                          callback: function($$v) {
-                                            _vm.dialogDelete = $$v
-                                          },
-                                          expression: "dialogDelete"
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "v-card",
-                                          [
-                                            _c(
-                                              "v-card-title",
-                                              { staticClass: "text-h5" },
-                                              [
-                                                _vm._v(
-                                                  "Are you sure you want to delete this item?"
-                                                )
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "v-card-actions",
-                                              [
-                                                _c("v-spacer"),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      color: "blue darken-1",
-                                                      text: ""
-                                                    },
-                                                    on: {
-                                                      click: _vm.closeDelete
-                                                    }
-                                                  },
-                                                  [_vm._v("Cancel")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "v-btn",
-                                                  {
-                                                    attrs: {
-                                                      color: "blue darken-1",
-                                                      text: ""
-                                                    },
-                                                    on: {
-                                                      click:
-                                                        _vm.deleteItemConfirm
-                                                    }
-                                                  },
-                                                  [_vm._v("OK")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("v-spacer")
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ]
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Saca Padrão Industrial"
                             },
-                            proxy: true
-                          },
-                          {
-                            key: "item.actions",
-                            fn: function(ref) {
-                              var item = ref.item
-                              return [
-                                _c(
-                                  "v-icon",
-                                  {
-                                    staticClass: "mr-2",
-                                    attrs: { small: "" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.editItem(item)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                            mdi-pencil\n                        "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-icon",
-                                  {
-                                    attrs: { small: "" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.deleteItem(item)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                            mdi-delete\n                        "
-                                    )
-                                  ]
+                            on: {
+                              keyup: function($event) {
+                                return _vm.precoMedio(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.precosmsacaindustrial,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "precosmsacaindustrial",
+                                  $$v
                                 )
-                              ]
+                              },
+                              expression: "cotacao.precosmsacaindustrial"
                             }
-                          }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: { outlined: "", label: "Peso Saca Kgs" },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.precoMedio(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.pesoSacaKgs,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "pesoSacaKgs", $$v)
+                              },
+                              expression: "cotacao.pesoSacaKgs"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Preço Médio Kilo"
+                            },
+                            model: {
+                              value: _vm.cotacao.precosMquiloindustrial,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "precosMquiloindustrial",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.precosMquiloindustrial"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "6" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Porcentagem de Oscilação Positiva Saca"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.oscilacaoPositiva(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.maioroscilacao,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "maioroscilacao", $$v)
+                              },
+                              expression: "cotacao.maioroscilacao"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "6" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Porcentagem de Oscilação Negativa Saca"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.oscilacaoNegativa(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.menoroscilacao,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "menoroscilacao", $$v)
+                              },
+                              expression: "cotacao.menoroscilacao"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "6" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Valor Oscilação Positiva Saca"
+                            },
+                            model: {
+                              value: _vm.cotacao.valorMaiorOscilacao,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "valorMaiorOscilacao",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.valorMaiorOscilacao"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "6" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Valor Oscilação Negativa Saca"
+                            },
+                            model: {
+                              value: _vm.cotacao.valorMenorOscilacao,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "valorMenorOscilacao",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.valorMenorOscilacao"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c("v-col", { attrs: { cols: "12", lg: "12" } }, [
+                        _c("h1", { staticClass: "text-center" }, [
+                          _vm._v("Valor Terra Nua")
                         ])
-                      })
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Valor Do Hectare para Venda em R$"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.sacasVenda(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.ValorHectareVenda,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "ValorHectareVenda", $$v)
+                              },
+                              expression: "cotacao.ValorHectareVenda"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Valor em Sacas"
+                            },
+                            model: {
+                              value: _vm.cotacao.QuantidadeSacasVenda,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "QuantidadeSacasVenda",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.QuantidadeSacasVenda"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Valor Hectare para Arrendamento Em %\t"
+                            },
+                            model: {
+                              value: _vm.cotacao.porcentagemValorArrendamento,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "porcentagemValorArrendamento",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.porcentagemValorArrendamento"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label:
+                                "Valor Do Hectare para Arrendamento Em R$\t"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.sacasArrendamento(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.ValorHectareArrendamento,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "ValorHectareArrendamento",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.ValorHectareArrendamento"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Valor em Sacas"
+                            },
+                            model: {
+                              value: _vm.cotacao.QuantidadeSacasArrendamento,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "QuantidadeSacasArrendamento",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.QuantidadeSacasArrendamento"
+                            }
+                          })
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
@@ -43335,7 +44349,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                        Salvar Dados\n                    "
+                            "\n                        Próximo\n                    "
                           )
                         ]
                       )
@@ -43673,6 +44687,688 @@ var render = function() {
                     }
                   },
                   [_vm._v("\n                mdi-delete\n            ")]
+                )
+              ]
+            }
+          }
+        ])
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasMercado.vue?vue&type=template&id=d5f1b502&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasMercado.vue?vue&type=template&id=d5f1b502& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    [
+      _c("NavbarSimulador"),
+      _vm._v(" "),
+      _c("v-data-table", {
+        staticClass: "elevation-1",
+        attrs: {
+          headers: _vm.headers,
+          items: _vm.culturas,
+          "sort-by": "cultivar"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "top",
+            fn: function() {
+              return [
+                _c(
+                  "v-toolbar",
+                  { attrs: { flat: "" } },
+                  [
+                    _c("v-toolbar-title", [_vm._v("Culturas")]),
+                    _vm._v(" "),
+                    _c("v-divider", {
+                      staticClass: "mx-4",
+                      attrs: { inset: "", vertical: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-dialog",
+                      {
+                        attrs: { "max-width": "500px" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "mb-2",
+                                        attrs: { color: "#124057", dark: "" }
+                                      },
+                                      "v-btn",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n                            Nova Cultura\n                        "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ]),
+                        model: {
+                          value: _vm.dialog,
+                          callback: function($$v) {
+                            _vm.dialog = $$v
+                          },
+                          expression: "dialog"
+                        }
+                      },
+                      [
+                        _vm._v(" "),
+                        _c(
+                          "v-card",
+                          [
+                            _c("v-card-title", [
+                              _c("span", { staticClass: "text-h5" }, [
+                                _vm._v(_vm._s(_vm.formTitle))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-text",
+                              [
+                                _c(
+                                  "v-container",
+                                  [
+                                    _c(
+                                      "v-row",
+                                      [
+                                        _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              sm: "6",
+                                              md: "6"
+                                            }
+                                          },
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: { label: "Cultura" },
+                                              model: {
+                                                value: _vm.editedItem.name,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.editedItem,
+                                                    "name",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "editedItem.name"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              sm: "6",
+                                              md: "6"
+                                            }
+                                          },
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: { label: "Cultivar" },
+                                              model: {
+                                                value: _vm.editedItem.cultivar,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.editedItem,
+                                                    "cultivar",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "editedItem.cultivar"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "#124057", text: "" },
+                                    on: { click: _vm.close }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                Cancel\n                            "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "#124057", text: "" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.save(_vm.item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                Save\n                            "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-dialog",
+                      {
+                        attrs: { "max-width": "500px" },
+                        model: {
+                          value: _vm.dialogDelete,
+                          callback: function($$v) {
+                            _vm.dialogDelete = $$v
+                          },
+                          expression: "dialogDelete"
+                        }
+                      },
+                      [
+                        _c(
+                          "v-card",
+                          [
+                            _c("v-card-title", { staticClass: "text-h5" }, [
+                              _vm._v(
+                                "Are you sure you want to delete this item?"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: { click: _vm.closeDelete }
+                                  },
+                                  [_vm._v("Cancel")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: { click: _vm.deleteItemConfirm }
+                                  },
+                                  [_vm._v("OK")]
+                                ),
+                                _vm._v(" "),
+                                _c("v-spacer")
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "item.actions",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-icon",
+                  {
+                    staticClass: "mr-2",
+                    attrs: { small: "" },
+                    on: {
+                      click: function($event) {
+                        return _vm.editItem(item)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                mdi-pencil\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-icon",
+                  {
+                    attrs: { small: "" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteItem(item)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                mdi-delete\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-icon",
+                  {
+                    attrs: { small: "" },
+                    on: {
+                      click: function($event) {
+                        return _vm.Cotacoes(item)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                Selecionar\n            ")]
+                )
+              ]
+            }
+          }
+        ])
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasPensamento.vue?vue&type=template&id=85d02a04&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/culturasPensamento.vue?vue&type=template&id=85d02a04& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    [
+      _c("NavbarSimulador"),
+      _vm._v(" "),
+      _c("v-data-table", {
+        staticClass: "elevation-1",
+        attrs: {
+          headers: _vm.headers,
+          items: _vm.culturas,
+          "sort-by": "cultivar"
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "top",
+            fn: function() {
+              return [
+                _c(
+                  "v-toolbar",
+                  { attrs: { flat: "" } },
+                  [
+                    _c("v-toolbar-title", [_vm._v("Culturas")]),
+                    _vm._v(" "),
+                    _c("v-divider", {
+                      staticClass: "mx-4",
+                      attrs: { inset: "", vertical: "" }
+                    }),
+                    _vm._v(" "),
+                    _c("v-spacer"),
+                    _vm._v(" "),
+                    _c(
+                      "v-dialog",
+                      {
+                        attrs: { "max-width": "500px" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              var attrs = ref.attrs
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    _vm._b(
+                                      {
+                                        staticClass: "mb-2",
+                                        attrs: { color: "#124057", dark: "" }
+                                      },
+                                      "v-btn",
+                                      attrs,
+                                      false
+                                    ),
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n                            Nova Cultura\n                        "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ]),
+                        model: {
+                          value: _vm.dialog,
+                          callback: function($$v) {
+                            _vm.dialog = $$v
+                          },
+                          expression: "dialog"
+                        }
+                      },
+                      [
+                        _vm._v(" "),
+                        _c(
+                          "v-card",
+                          [
+                            _c("v-card-title", [
+                              _c("span", { staticClass: "text-h5" }, [
+                                _vm._v(_vm._s(_vm.formTitle))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-text",
+                              [
+                                _c(
+                                  "v-container",
+                                  [
+                                    _c(
+                                      "v-row",
+                                      [
+                                        _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              sm: "6",
+                                              md: "6"
+                                            }
+                                          },
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: { label: "Cultura" },
+                                              model: {
+                                                value: _vm.editedItem.name,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.editedItem,
+                                                    "name",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "editedItem.name"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "v-col",
+                                          {
+                                            attrs: {
+                                              cols: "12",
+                                              sm: "6",
+                                              md: "6"
+                                            }
+                                          },
+                                          [
+                                            _c("v-text-field", {
+                                              attrs: { label: "Cultivar" },
+                                              model: {
+                                                value: _vm.editedItem.cultivar,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    _vm.editedItem,
+                                                    "cultivar",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "editedItem.cultivar"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "#124057", text: "" },
+                                    on: { click: _vm.close }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                Cancel\n                            "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "#124057", text: "" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.save(_vm.item)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                Save\n                            "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-dialog",
+                      {
+                        attrs: { "max-width": "500px" },
+                        model: {
+                          value: _vm.dialogDelete,
+                          callback: function($$v) {
+                            _vm.dialogDelete = $$v
+                          },
+                          expression: "dialogDelete"
+                        }
+                      },
+                      [
+                        _c(
+                          "v-card",
+                          [
+                            _c("v-card-title", { staticClass: "text-h5" }, [
+                              _vm._v(
+                                "Are you sure you want to delete this item?"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "v-card-actions",
+                              [
+                                _c("v-spacer"),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: { click: _vm.closeDelete }
+                                  },
+                                  [_vm._v("Cancel")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "v-btn",
+                                  {
+                                    attrs: { color: "blue darken-1", text: "" },
+                                    on: { click: _vm.deleteItemConfirm }
+                                  },
+                                  [_vm._v("OK")]
+                                ),
+                                _vm._v(" "),
+                                _c("v-spacer")
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "item.actions",
+            fn: function(ref) {
+              var item = ref.item
+              return [
+                _c(
+                  "v-icon",
+                  {
+                    staticClass: "mr-2",
+                    attrs: { small: "" },
+                    on: {
+                      click: function($event) {
+                        return _vm.editItem(item)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                mdi-pencil\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-icon",
+                  {
+                    attrs: { small: "" },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteItem(item)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                mdi-delete\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "v-icon",
+                  {
+                    attrs: { small: "" },
+                    on: {
+                      click: function($event) {
+                        return _vm.pensamento(item)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                Selecionar\n            ")]
                 )
               ]
             }
@@ -44286,6 +45982,252 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mercadoTerraNua.vue?vue&type=template&id=9063ae9c&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/mercadoTerraNua.vue?vue&type=template&id=9063ae9c& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-app",
+    [
+      _c("NavbarSimulador"),
+      _vm._v(" "),
+      _c(
+        "main",
+        [
+          _c(
+            "v-form",
+            {
+              model: {
+                value: _vm.valid,
+                callback: function($$v) {
+                  _vm.valid = $$v
+                },
+                expression: "valid"
+              }
+            },
+            [
+              _c("token-use"),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    [
+                      _c("v-col", { attrs: { cols: "12", lg: "12" } }, [
+                        _c("h1", { staticClass: "text-center" }, [
+                          _vm._v("Simulador de Mercado")
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              solo: "",
+                              label: "Valor Do Hectare para Venda em R$"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.sacasVenda(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.ValorHectareVenda,
+                              callback: function($$v) {
+                                _vm.$set(_vm.cotacao, "ValorHectareVenda", $$v)
+                              },
+                              expression: "cotacao.ValorHectareVenda"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: { solo: "", label: "Valor em Sacas" },
+                            model: {
+                              value: _vm.cotacao.QuantidadeSacasVenda,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "QuantidadeSacasVenda",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.QuantidadeSacasVenda"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              solo: "",
+                              label: "Valor Hectare para Arrendamento Em %\t"
+                            },
+                            model: {
+                              value: _vm.cotacao.porcentagemValorArrendamento,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "porcentagemValorArrendamento",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.porcentagemValorArrendamento"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              solo: "",
+                              label:
+                                "Valor Do Hectare para Arrendamento Em R$\t"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.sacasArrendamento(_vm.cotacao)
+                              }
+                            },
+                            model: {
+                              value: _vm.cotacao.ValorHectareArrendamento,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "ValorHectareArrendamento",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.ValorHectareArrendamento"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: { solo: "", label: "Valor em Sacas" },
+                            model: {
+                              value: _vm.cotacao.QuantidadeSacasArrendamento,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.cotacao,
+                                  "QuantidadeSacasArrendamento",
+                                  $$v
+                                )
+                              },
+                              expression: "cotacao.QuantidadeSacasArrendamento"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", lg: "12" } },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mb-2",
+                          attrs: { color: "#124057", dark: "" },
+                          on: { click: _vm.SalvarCotacao }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Próximo\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pensamentoEstrategico.vue?vue&type=template&id=093cd68f&":
 /*!*********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pensamentoEstrategico.vue?vue&type=template&id=093cd68f& ***!
@@ -44307,464 +46249,377 @@ var render = function() {
     [
       _c("NavbarSimulador"),
       _vm._v(" "),
-      _c("v-data-table", {
-        staticClass: "elevation-1",
-        attrs: {
-          headers: _vm.headers,
-          items: _vm.culturas,
-          "sort-by": "cultivar"
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "top",
-            fn: function() {
-              return [
-                _c(
-                  "v-toolbar",
-                  { attrs: { flat: "" } },
-                  [
-                    _c("v-toolbar-title", [_vm._v("Objetivos Operacionais")]),
-                    _vm._v(" "),
-                    _c("v-divider", {
-                      staticClass: "mx-4",
-                      attrs: { inset: "", vertical: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("v-spacer"),
-                    _vm._v(" "),
-                    _c(
-                      "v-dialog",
-                      {
-                        attrs: { "max-width": "1000px" },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "activator",
-                            fn: function(ref) {
-                              var on = ref.on
-                              var attrs = ref.attrs
-                              return [
-                                _c(
-                                  "v-btn",
-                                  _vm._g(
-                                    _vm._b(
-                                      {
-                                        staticClass: "mb-2",
-                                        attrs: { color: "#124057", dark: "" }
-                                      },
-                                      "v-btn",
-                                      attrs,
-                                      false
-                                    ),
-                                    on
-                                  ),
-                                  [
-                                    _vm._v(
-                                      "\n                            Nova Cultura\n                        "
-                                    )
-                                  ]
-                                )
-                              ]
-                            }
-                          }
-                        ]),
-                        model: {
-                          value: _vm.dialog,
-                          callback: function($$v) {
-                            _vm.dialog = $$v
-                          },
-                          expression: "dialog"
-                        }
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "v-card",
-                          [
-                            _c("v-card-title", [
-                              _c("span", { staticClass: "text-h5" }, [
-                                _vm._v(_vm._s(_vm.formTitle))
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-text",
-                              [
-                                _c(
-                                  "v-container",
-                                  [
-                                    _c(
-                                      "v-row",
-                                      [
-                                        _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              sm: "6",
-                                              md: "4"
-                                            }
-                                          },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: { label: "Cultura" },
-                                              model: {
-                                                value: _vm.editedItem.name,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "name",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression: "editedItem.name"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              sm: "6",
-                                              md: "4"
-                                            }
-                                          },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: { label: "Cultivar" },
-                                              model: {
-                                                value: _vm.editedItem.cultivar,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "cultivar",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.cultivar"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          {
-                                            attrs: {
-                                              cols: "12",
-                                              sm: "6",
-                                              md: "4"
-                                            }
-                                          },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "Identificação do Talhao"
-                                              },
-                                              model: {
-                                                value: _vm.editedItem.idTalhao,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "idTalhao",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.idTalhao"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          { attrs: { cols: "12", lg: "3" } },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "Sistema De Plantio"
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.editedItem.sistemaPlantio,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "sistemaPlantio",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.sistemaPlantio"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          { attrs: { cols: "12", lg: "3" } },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "Área Total Talhão/Há"
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.editedItem
-                                                    .areaTotalTalhao,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "areaTotalTalhao",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.areaTotalTalhao"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          { attrs: { cols: "12", lg: "3" } },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label:
-                                                  "Área Disponível Talhão Para Uso %"
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.editedItem
-                                                    .areaDisponivelTalhao,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "areaDisponivelTalhao",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.areaDisponivelTalhao"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          { attrs: { cols: "12", lg: "3" } },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label: "Estimativa De Kgs/Há"
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.editedItem.estimativaKgs,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "estimativaKgs",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.estimativaKgs"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-col",
-                                          { attrs: { cols: "12", lg: "3" } },
-                                          [
-                                            _c("v-text-field", {
-                                              attrs: {
-                                                label:
-                                                  "Desejo De Margem Liquida em %/Sc"
-                                              },
-                                              model: {
-                                                value:
-                                                  _vm.editedItem
-                                                    .desejoMargemLiquida,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    _vm.editedItem,
-                                                    "desejoMargemLiquida",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression:
-                                                  "editedItem.desejoMargemLiquida"
-                                              }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-actions",
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: { click: _vm.close }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Cancel\n                            "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: { click: _vm.save }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Save\n                            "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "v-dialog",
-                      {
-                        attrs: { "max-width": "500px" },
-                        model: {
-                          value: _vm.dialogDelete,
-                          callback: function($$v) {
-                            _vm.dialogDelete = $$v
-                          },
-                          expression: "dialogDelete"
-                        }
-                      },
-                      [
-                        _c(
-                          "v-card",
-                          [
-                            _c("v-card-title", { staticClass: "text-h5" }, [
-                              _vm._v(
-                                "Are you sure you want to delete this item?"
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "v-card-actions",
-                              [
-                                _c("v-spacer"),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: { click: _vm.closeDelete }
-                                  },
-                                  [_vm._v("Cancel")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "v-btn",
-                                  {
-                                    attrs: { color: "blue darken-1", text: "" },
-                                    on: { click: _vm.deleteItemConfirm }
-                                  },
-                                  [_vm._v("OK")]
-                                ),
-                                _vm._v(" "),
-                                _c("v-spacer")
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ]
+      _c(
+        "main",
+        [
+          _c(
+            "v-form",
+            {
+              model: {
+                value: _vm.valid,
+                callback: function($$v) {
+                  _vm.valid = $$v
+                },
+                expression: "valid"
+              }
             },
-            proxy: true
-          },
-          {
-            key: "item.actions",
-            fn: function(ref) {
-              var item = ref.item
-              return [
-                _c(
-                  "v-icon",
-                  {
-                    staticClass: "mr-2",
-                    attrs: { small: "" },
-                    on: {
-                      click: function($event) {
-                        return _vm.editItem(item)
-                      }
-                    }
-                  },
-                  [_vm._v("\n                mdi-pencil\n            ")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "v-icon",
-                  {
-                    attrs: { small: "" },
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteItem(item)
-                      }
-                    }
-                  },
-                  [_vm._v("\n                mdi-delete\n            ")]
-                )
-              ]
-            }
-          }
-        ])
-      })
+            [
+              _c("token-use"),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    [
+                      _c("v-col", { attrs: { cols: "12", lg: "12" } }, [
+                        _c("h1", { staticClass: "text-center" }, [
+                          _vm._v("Pensamento Estratégico")
+                        ])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-container",
+                { attrs: { fluid: "" } },
+                [
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Área Total Talhão/Há"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.areaDisponivelHa(_vm.pensamento)
+                              }
+                            },
+                            model: {
+                              value: _vm.pensamento.areaTotalTalhao,
+                              callback: function($$v) {
+                                _vm.$set(_vm.pensamento, "areaTotalTalhao", $$v)
+                              },
+                              expression: "pensamento.areaTotalTalhao"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Área Disponível Talhão Para Uso %"
+                            },
+                            on: {
+                              keyup: function($event) {
+                                return _vm.areaDisponivelHa(_vm.pensamento)
+                              }
+                            },
+                            model: {
+                              value: _vm.pensamento.areaDisponivelTalhao,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "areaDisponivelTalhao",
+                                  $$v
+                                )
+                              },
+                              expression: "pensamento.areaDisponivelTalhao"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Área Disponível De Uso Em Há"
+                            },
+                            model: {
+                              value: _vm.pensamento.areaDisponivelEmHa,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "areaDisponivelEmHa",
+                                  $$v
+                                )
+                              },
+                              expression: "pensamento.areaDisponivelEmHa"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Estimativa De Kgs/Há"
+                            },
+                            model: {
+                              value: _vm.pensamento.estimativaKgs,
+                              callback: function($$v) {
+                                _vm.$set(_vm.pensamento, "estimativaKgs", $$v)
+                              },
+                              expression: "pensamento.estimativaKgs"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Peso Médio Por Saca Em Kgs"
+                            },
+                            model: {
+                              value: _vm.pensamento.pesoMedioSacaKgs,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "pesoMedioSacaKgs",
+                                  $$v
+                                )
+                              },
+                              expression: "pensamento.pesoMedioSacaKgs"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Estimativa Colheita Em Kgs"
+                            },
+                            model: {
+                              value: _vm.pensamento.estimativaColheitaKgs,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "estimativaColheitaKgs",
+                                  $$v
+                                )
+                              },
+                              expression: "pensamento.estimativaColheitaKgs"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Estimatima Colheita Scs/Ha"
+                            },
+                            model: {
+                              value: _vm.pensamento.estimativaColheitasSacasHa,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "estimativaColheitasSacasHa",
+                                  $$v
+                                )
+                              },
+                              expression:
+                                "pensamento.estimativaColheitasSacasHa"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Estimativa Colheita Total Em Sacas"
+                            },
+                            model: {
+                              value:
+                                _vm.pensamento.estimativaColheitaTotalSacas,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "estimativaColheitaTotalSacas",
+                                  $$v
+                                )
+                              },
+                              expression:
+                                "pensamento.estimativaColheitaTotalSacas"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-row",
+                    { attrs: { justify: "center" } },
+                    [
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              disabled: "",
+                              label: "Estimativa Valor De Venda Saca R$"
+                            },
+                            model: {
+                              value: _vm.pensamento.estimativaValorVenda,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "estimativaValorVenda",
+                                  $$v
+                                )
+                              },
+                              expression: "pensamento.estimativaValorVenda"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "12", lg: "4" } },
+                        [
+                          _c("v-text-field", {
+                            attrs: {
+                              outlined: "",
+                              label: "Desejo De Margem Liquida em %/Sc"
+                            },
+                            model: {
+                              value: _vm.pensamento.desejoMargemLiquida,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.pensamento,
+                                  "desejoMargemLiquida",
+                                  $$v
+                                )
+                              },
+                              expression: "pensamento.desejoMargemLiquida"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", lg: "12" } },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "mb-2",
+                          attrs: { color: "#124057", dark: "" },
+                          on: { click: _vm.SalvarCotacao }
+                        },
+                        [
+                          _vm._v(
+                            "\n                        Próximo\n                    "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -44999,31 +46854,38 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-footer",
-    { attrs: { color: "#005197", padless: "" } },
+    "v-container",
+    { staticClass: "grey lighten-5", attrs: { fluid: "" } },
     [
       _c(
-        "v-row",
-        { attrs: { justify: "center", "no-gutters": "" } },
+        "v-footer",
+        { attrs: { color: "#1abc9c", padless: "" } },
         [
           _c(
-            "v-btn",
-            {
-              staticClass: "my-2",
-              attrs: { color: "white", text: "", rounded: "" },
-              on: { click: _vm.Culturas }
-            },
-            [_vm._v("\n            Culturas\n        ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "v-btn",
-            {
-              staticClass: "my-2",
-              attrs: { color: "white", text: "", rounded: "" },
-              on: { click: _vm.Propriedades }
-            },
-            [_vm._v("\n            Propriedades\n        ")]
+            "v-row",
+            { attrs: { justify: "center", "no-gutters": "" } },
+            [
+              _c(
+                "v-btn",
+                {
+                  staticClass: "my-2",
+                  attrs: { color: "white", text: "", rounded: "" },
+                  on: { click: _vm.Culturas }
+                },
+                [_vm._v("\n            Culturas\n        ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "v-btn",
+                {
+                  staticClass: "my-2",
+                  attrs: { color: "white", text: "", rounded: "" },
+                  on: { click: _vm.Propriedades }
+                },
+                [_vm._v("\n            Propriedades\n        ")]
+              )
+            ],
+            1
           )
         ],
         1

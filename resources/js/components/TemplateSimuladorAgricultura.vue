@@ -1,6 +1,6 @@
 <template>
     <v-footer
-        color="#005197"
+        color="#1abc9c"
         padless
     >
         <v-row
@@ -14,7 +14,7 @@
                 rounded
                 class="my-2"
             >
-                Cotações
+                Simulador de Mercado
             </v-btn>
 
             <v-btn
@@ -46,7 +46,7 @@ export default {
 
     methods: {
         Cotacoes (){
-            this.$router.push('cotacoes')
+            this.$router.push('culturasMercado')
         },
         Pensamento (){
             this.$router.push('pensamento')

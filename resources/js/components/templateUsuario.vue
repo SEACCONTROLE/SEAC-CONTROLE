@@ -1,6 +1,7 @@
 <template>
+    <v-container fluid class="grey lighten-5">
     <v-footer
-        color="#005197"
+        color="#1abc9c"
         padless
     >
         <v-row
@@ -29,6 +30,7 @@
             </v-btn>
         </v-row>
     </v-footer>
+    </v-container>
 </template>
 
 <script>
