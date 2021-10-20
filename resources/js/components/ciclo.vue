@@ -6,6 +6,8 @@
             :items="ciclos"
             sort-by="proprietario"
             class="elevation-1"
+            :loading="loadingTable"
+            loading-text="Carregando... espere um momento"
         >
             <template v-slot:top>
                 <v-toolbar
@@ -54,6 +56,7 @@
                                             <v-text-field
                                                 v-model="editedItem.inicio"
                                                 label="Inicio do Ciclo"
+                                                v-mask="'##/##/####'"
                                             ></v-text-field>
                                         </v-col>
                                         <v-col
@@ -64,6 +67,7 @@
                                             <v-text-field
                                                 v-model="editedItem.termino"
                                                 label="Termino do Ciclo"
+                                                v-mask="'##/##/####'"
                                             ></v-text-field>
                                         </v-col>
                                         <v-col
@@ -168,6 +172,7 @@ export default {
         ciclospassar: [],
         editedIndex: -1,
         resposta: '',
+        loadingTable:true,
         editedItem: {
             inicio: '',
             termino: '',
@@ -221,7 +226,7 @@ export default {
                         },
                         this.ciclos.push(this.ciclospassar);
                 }
-
+                this.loadingTable = false;
             })
 
             //this.propriedades = [

@@ -6,6 +6,8 @@
             :items="culturas"
             sort-by="cultivar"
             class="elevation-1"
+            :loading="loadingTable"
+            loading-text="Carregando... espere um momento"
         >
             <template v-slot:top>
                 <v-toolbar
@@ -139,6 +141,7 @@ export default {
         culturas: [],
         culturasget: [],
         culturaspassar: [],
+        loadingTable: true,
 
 
         editedIndex: -1,
@@ -193,7 +196,7 @@ export default {
                      },
                     this.culturas.push(this.culturaspassar);
                 }
-
+                this.loadingTable = false;
             })
 
 

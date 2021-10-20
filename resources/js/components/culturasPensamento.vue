@@ -6,6 +6,8 @@
             :items="culturas"
             sort-by="cultivar"
             class="elevation-1"
+            loading
+            loading-text="Carregando... espere um momento"
         >
             <template v-slot:top>
                 <v-toolbar

@@ -21,55 +21,76 @@
 
                 <v-container fluid>
                     <v-row justify="center">
+
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Área Total Talhão/Há</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.areaTotalTalhao"
                                 outlined
                                 v-on:keyup="areaDisponivelHa(pensamento)"
-                                label="Área Total Talhão/Há"
+                                v-mask="'###.#'"
                             >
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Área Disponível Talhão Para Uso %</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.areaDisponivelTalhao"
                                 outlined
                                 v-on:keyup="areaDisponivelHa(pensamento)"
-                                label="Área Disponível Talhão Para Uso %"
+                                v-mask="'###'"
                             >
                             </v-text-field>
                         </v-col>
                     </v-row>
 
                     <v-row justify="center">
+
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Área Disponível De Uso Em Há</v-subheader>
+                        </v-col>
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.areaDisponivelEmHa"
                                 outlined
                                 disabled
-                                label="Área Disponível De Uso Em Há"
+                                v-mask="'###.#'"
                             >
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Estimativa De Kgs/Há</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaKgs"
                                 outlined
-                                label="Estimativa De Kgs/Há"
+                                v-mask="'###.###'"
                             >
                             </v-text-field>
                         </v-col>
@@ -77,28 +98,37 @@
                     </v-row>
 
                     <v-row justify="center">
+
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Peso Médio Por Saca Em Kgs</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.pesoMedioSacaKgs"
                                 outlined
                                 disabled
-                                label="Peso Médio Por Saca Em Kgs"
                             >
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Estimativa Colheita Em Kgs</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaColheitaKgs"
                                 outlined
                                 disabled
-                                label="Estimativa Colheita Em Kgs"
                             >
                             </v-text-field>
                         </v-col>
@@ -110,28 +140,36 @@
 
                     <v-row justify="center">
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Estimatima Colheita Scs/Ha</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaColheitasSacasHa"
                                 outlined
                                 disabled
-                                label="Estimatima Colheita Scs/Ha"
                             >
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Estimativa Colheita Total Em Sacas</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaColheitaTotalSacas"
                                 outlined
                                 disabled
-                                label="Estimativa Colheita Total Em Sacas"
                             >
                             </v-text-field>
                         </v-col>
@@ -141,27 +179,35 @@
 
                     <v-row justify="center">
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Estimativa Valor De Venda Saca R$</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.estimativaValorVenda"
                                 outlined
                                 disabled
-                                label="Estimativa Valor De Venda Saca R$"
                             >
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Desejo De Margem Liquida em %/Sc</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="pensamento.desejoMargemLiquida"
                                 outlined
-                                label="Desejo De Margem Liquida em %/Sc"
                             >
                             </v-text-field>
                         </v-col>
