@@ -1934,7 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   /* <v-app dark id="inspire">
-       <v-navigation-drawer
+        <v-navigation-drawer
           app
           permanent expand-on-hover
          floating  color="white"
@@ -1945,7 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
   /*<template>
   <div id="app">
   <v-app dark id="inspire">
-       <v-navigation-drawer
+        <v-navigation-drawer
           app
           permanent expand-on-hover
          floating  color="white"
@@ -1984,6 +1984,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -2314,6 +2316,7 @@ __webpack_require__.r(__webpack_exports__);
       ciclospassar: [],
       editedIndex: -1,
       resposta: '',
+      loadingTable: true,
       editedItem: {
         inicio: '',
         termino: '',
@@ -2363,6 +2366,8 @@ __webpack_require__.r(__webpack_exports__);
             periodo: _this2.ciclosget[i]['periodoEmDias']
           }, _this2.ciclos.push(_this2.ciclospassar);
         }
+
+        _this2.loadingTable = false;
       }); //this.propriedades = [
       //    {
       //      name: 'Frozen Yogurt',
@@ -3206,6 +3211,7 @@ __webpack_require__.r(__webpack_exports__);
       culturas: [],
       culturasget: [],
       culturaspassar: [],
+      loadingTable: true,
       editedIndex: -1,
       culturasEditar: {
         editItem: '',
@@ -3250,6 +3256,8 @@ __webpack_require__.r(__webpack_exports__);
             cultivar: _this.culturasget[i]['variedadeCultivada']
           }, _this.culturas.push(_this.culturaspassar);
         }
+
+        _this.loadingTable = false;
       }); //this.propriedades = [
       //    {
       //      name: 'Frozen Yogurt',
@@ -3483,6 +3491,7 @@ __webpack_require__.r(__webpack_exports__);
       culturas: [],
       culturasget: [],
       culturaspassar: [],
+      loadingTable: true,
       editedIndex: -1,
       culturasEditar: {
         editItem: '',
@@ -3532,6 +3541,8 @@ __webpack_require__.r(__webpack_exports__);
             cultivar: _this2.culturasget[i]['variedadeCultivada']
           }, _this2.culturas.push(_this2.culturaspassar);
         }
+
+        _this2.loadingTable = false;
       }); //this.propriedades = [
       //    {
       //      name: 'Frozen Yogurt',
@@ -4223,6 +4234,7 @@ __webpack_require__.r(__webpack_exports__);
       propriedadespassar: [],
       editedIndex: -1,
       resposta: '',
+      loadingTable: true,
       propriedadesEditar: {
         editItem: '',
         novoItem: ''
@@ -4276,6 +4288,8 @@ __webpack_require__.r(__webpack_exports__);
             cpf: _this2.propriedadesget[i]['cpf']
           }, _this2.propriedades.push(_this2.propriedadespassar);
         }
+
+        _this2.loadingTable = false;
       }); //this.propriedades = [
       //    {
       //      name: 'Frozen Yogurt',
@@ -4610,9 +4624,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-            })
+             })
            .finally(()=>{
-            })*/
+             })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -4655,16 +4669,16 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-              })
+               })
              .finally(()=>{
-              })*/
+               })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         /*axios.post('/cadastrarPropriedade', this.editedItem)
             .then(response=>{
-             })
+              })
             .finally(()=>{
-             })*/
+              })*/
         this.culturas.push(this.editedItem);
       }
 
@@ -5040,9 +5054,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-            })
+             })
            .finally(()=>{
-            })*/
+             })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -5090,9 +5104,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-              })
+               })
              .finally(()=>{
-              })*/
+               })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         this.pensamento.culturas = this.culturas;
@@ -5295,6 +5309,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -43381,7 +43397,8 @@ var render = function() {
             "v-btn",
             {
               staticClass: "my-2",
-              attrs: { color: "white", text: "", rounded: "" },
+              staticStyle: { "background-color": "white" },
+              attrs: { color: "#1abc9c", text: "", rounded: "" },
               on: { click: _vm.Cotacoes }
             },
             [_vm._v("\n            Simulador de Mercado\n        ")]
@@ -43391,7 +43408,8 @@ var render = function() {
             "v-btn",
             {
               staticClass: "my-2",
-              attrs: { color: "white", text: "", rounded: "" },
+              staticStyle: { "background-color": "white" },
+              attrs: { color: "#1abc9c", text: "", rounded: "" },
               on: { click: _vm.Ciclo }
             },
             [_vm._v("\n            Pensamento Estratégico\n\n        ")]
@@ -43519,7 +43537,7 @@ var render = function() {
           headers: _vm.headers,
           items: _vm.ciclos,
           "sort-by": "proprietario",
-          loading: "",
+          loading: _vm.loadingTable,
           "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
@@ -44614,7 +44632,7 @@ var render = function() {
           headers: _vm.headers,
           items: _vm.culturas,
           "sort-by": "cultivar",
-          loading: "",
+          loading: _vm.loadingTable,
           "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
@@ -44944,7 +44962,7 @@ var render = function() {
           headers: _vm.headers,
           items: _vm.culturas,
           "sort-by": "cultivar",
-          loading: "",
+          loading: _vm.loadingTable,
           "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
@@ -45858,7 +45876,7 @@ var render = function() {
           headers: _vm.headers,
           items: _vm.propriedades,
           "sort-by": "proprietario",
-          loading: "",
+          loading: _vm.loadingTable,
           "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
@@ -47194,7 +47212,8 @@ var render = function() {
                 "v-btn",
                 {
                   staticClass: "my-2",
-                  attrs: { color: "white", text: "", rounded: "" },
+                  staticStyle: { "background-color": "white" },
+                  attrs: { color: "#1abc9c", text: "", rounded: "" },
                   on: { click: _vm.Culturas }
                 },
                 [_vm._v("\n            Culturas\n        ")]
@@ -47204,7 +47223,8 @@ var render = function() {
                 "v-btn",
                 {
                   staticClass: "my-2",
-                  attrs: { color: "white", text: "", rounded: "" },
+                  staticStyle: { "background-color": "white" },
+                  attrs: { color: "#1abc9c", text: "", rounded: "" },
                   on: { click: _vm.Propriedades }
                 },
                 [_vm._v("\n            Propriedades\n        ")]

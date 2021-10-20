@@ -6,7 +6,7 @@
         :items="propriedades"
         sort-by="proprietario"
         class="elevation-1"
-        loading
+        :loading="loadingTable"
         loading-text="Carregando... espere um momento"
     >
         <template v-slot:top>
@@ -179,7 +179,7 @@ export default {
         propriedadespassar: [],
         editedIndex: -1,
         resposta: '',
-
+        loadingTable: true,
         propriedadesEditar: {
             editItem:'',
             novoItem: ''
@@ -238,7 +238,7 @@ export default {
                         },
                         this.propriedades.push(this.propriedadespassar);
                 }
-
+                this.loadingTable = false;
             })
 
             //this.propriedades = [

@@ -9,7 +9,8 @@
         >
             <v-btn
                 @click="Cotacoes"
-                color="white"
+                color="#1abc9c"
+                style="background-color:white"
                 text
                 rounded
                 class="my-2"
@@ -19,7 +20,8 @@
 
             <v-btn
                 @click="Ciclo"
-                color="white"
+                color="#1abc9c"
+                style="background-color:white"
                 text
                 rounded
                 class="my-2"
