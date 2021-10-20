@@ -20,40 +20,56 @@
 
                 <v-container fluid>
                 <v-row justify="center">
+
+                    <v-col cols="4"
+                    lg="2">
+                        <v-subheader>Valor em Dolar</v-subheader>
+                    </v-col>
                     <v-col
-                        cols="12"
-                        lg="4"
+                        cols="4"
+                        lg="2"
                     >
                         <v-text-field
                             v-model="cotacao.valorDolarDolar"
                             outlined
-                        label="Valor em Dolar"
+                            v-mask="'#.##'"
                         >
 
                         </v-text-field>
                     </v-col>
+
+                    <v-col cols="4"
+                           lg="2">
+                        <v-subheader>Porcentagem da Menor Oscilação</v-subheader>
+                    </v-col>
                     <v-col
-                        cols="12"
-                        lg="4"
+                        cols="4"
+                        lg="2"
                     >
                         <v-text-field
                             v-model="cotacao.MenorOscilacaoDolar"
                             v-on:keyup="dolar(cotacao)"
                             outlined
-                            label="Porcentagem da Menor Oscilação"
+
+                            v-mask="'-###'"
                         >
 
                         </v-text-field>
                     </v-col>
+
+                    <v-col cols="4"
+                           lg="2">
+                        <v-subheader>Porcentagem da Maior Oscilação</v-subheader>
+                    </v-col>
                     <v-col
-                        cols="12"
-                        lg="4"
+                        cols="4"
+                        lg="2"
                     >
                         <v-text-field
                             v-model="cotacao.MaiorOscilacaoDolar"
                             v-on:keyup="dolar2(cotacao)"
                             outlined
-                            label="Porcentagem da Maior Oscilação"
+                            v-mask="'###'"
 
                         >
 
@@ -61,16 +77,20 @@
                     </v-col>
                 </v-row>
                     <v-row justify="center">
+
+                        <v-col cols="4"
+                               lg="3">
+                            <v-subheader>Valor Menor Oscilação</v-subheader>
+                        </v-col>
                     <v-col
-                        cols="12"
-                        lg="6"
+                        cols="4"
+                        lg="3"
                     >
 
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMenor"
                                 outlined
                                 disabled
-                                label="Valor Menor Oscilação"
                             >
 
                             </v-text-field>
@@ -78,16 +98,20 @@
 
                     </v-col>
 
+                        <v-col cols="4"
+                               lg="3">
+                            <v-subheader>Valor Maior Oscilação</v-subheader>
+                        </v-col>
+
                     <v-col
-                        cols="12"
-                        lg="6"
+                        cols="4"
+                        lg="3"
                     >
 
                             <v-text-field
                                 v-model="cotacao.valorOsciladoMaior"
                                 outlined
                                 disabled
-                                label="Valor Maior Oscilação"
                             >
 
                             </v-text-field>
@@ -100,16 +124,21 @@
 
                 <v-container fluid>
                     <v-row>
+
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Preço da Saca Atual</v-subheader>
+                        </v-col>
                     <v-col
-                        cols="12"
-                        lg="4"
+                        cols="4"
+                        lg="2"
                     >
 
                             <v-text-field
                                 v-model="cotacao.precosmsacaindustrial"
                                 outlined
                                 v-on:keyup="precoMedio(cotacao)"
-                                label="Saca Padrão Industrial"
+                                v-mask="'###.##'"
                             >
 
                             </v-text-field>
@@ -117,17 +146,20 @@
 
                     </v-col>
 
-
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Peso Saca Kgs</v-subheader>
+                        </v-col>
                     <v-col
-                        cols="12"
-                        lg="4"
+                        cols="4"
+                        lg="2"
                     >
 
                             <v-text-field
                                 v-model="cotacao.pesoSacaKgs"
                                 outlined
                                 v-on:keyup="precoMedio(cotacao)"
-                                label="Peso Saca Kgs"
+                                v-mask="'###.##'"
                             >
 
                             </v-text-field>
@@ -135,16 +167,20 @@
 
                     </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Preço Médio Kilo</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="4"
+                            lg="2"
                         >
 
                                 <v-text-field
                                     v-model="cotacao.precosMquiloindustrial"
                                     outlined
                                     disabled
-                                    label="Preço Médio Kilo"
                                 >
 
                                 </v-text-field>
@@ -154,53 +190,23 @@
 
                     </v-row>
 
+
                     <v-row>
-                        <v-col
-                            cols="12"
-                            lg="6"
-                        >
 
-                                <v-text-field
-                                    v-model="cotacao.maioroscilacao"
-                                    outlined
-                                    v-on:keyup="oscilacaoPositiva(cotacao)"
-                                    label="Porcentagem de Oscilação Positiva Saca"
-                                >
-
-                                </v-text-field>
-
-
+                        <v-col cols="4"
+                               lg="3">
+                            <v-subheader>Valor de Oscilação Positiva da Saca</v-subheader>
                         </v-col>
 
                         <v-col
-                            cols="12"
-                            lg="6"
-                        >
-
-                                <v-text-field
-                                    v-model="cotacao.menoroscilacao"
-                                    outlined
-                                    v-on:keyup="oscilacaoNegativa(cotacao)"
-                                    label="Porcentagem de Oscilação Negativa Saca"
-                                >
-
-                                </v-text-field>
-
-
-                        </v-col>
-                    </v-row>
-
-                    <v-row>
-                        <v-col
-                            cols="12"
-                            lg="6"
+                            cols="4"
+                            lg="3"
                         >
 
                                 <v-text-field
                                     v-model="cotacao.valorMaiorOscilacao"
                                     outlined
                                     disabled
-                                    label="Valor Oscilação Positiva Saca"
                                 >
 
                                 </v-text-field>
@@ -208,17 +214,20 @@
 
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="3">
+                            <v-subheader>Valor de Oscilação Negativa da Saca</v-subheader>
+                        </v-col>
 
                         <v-col
-                            cols="12"
-                            lg="6"
+                            cols="4"
+                            lg="3"
                         >
 
                                 <v-text-field
                                     v-model="cotacao.valorMenorOscilacao"
                                     outlined
                                     disabled
-                                    label="Valor Oscilação Negativa Saca"
                                 >
 
                                 </v-text-field>
@@ -245,24 +254,34 @@
 
                 <v-container fluid>
                     <v-row justify="center">
+
+                        <v-col cols="6"
+                               lg="3">
+                            <v-subheader>Valor Do Hectare para Venda em R$</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="3"
                         >
                             <v-text-field
                                 v-model="cotacao.ValorHectareVenda"
                                 outlined
                                 v-on:keyup="sacasVenda(cotacao)"
-                                label="Valor Do Hectare para Venda em R$"
+                                v-mask="'###.##'"
                             >
 
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="6"
+                               lg="3">
+                            <v-subheader>Valor em Sacas</v-subheader>
+                        </v-col>
 
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="6"
+                            lg="3"
                         >
                             <v-text-field
                                 v-model="cotacao.QuantidadeSacasVenda"
@@ -276,38 +295,53 @@
                     </v-row>
 
                     <v-row>
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Valor Hectare para Arrendamento Em %</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="4"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="cotacao.porcentagemValorArrendamento"
                                 outlined
-                                label="Valor Hectare para Arrendamento Em %	"
+                                v-mask="'###'"
                             >
 
                             </v-text-field>
                         </v-col>
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Valor Do Hectare para Arrendamento Em R$</v-subheader>
+                        </v-col>
 
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="4"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="cotacao.ValorHectareArrendamento"
                                 outlined
                                 v-on:keyup="sacasArrendamento(cotacao)"
                                 label="Valor Do Hectare para Arrendamento Em R$	"
+                                v-mask="'###.##'"
                             >
 
                             </v-text-field>
                         </v-col>
 
 
+                        <v-col cols="4"
+                               lg="2">
+                            <v-subheader>Valor em Sacas</v-subheader>
+                        </v-col>
+
                         <v-col
-                            cols="12"
-                            lg="4"
+                            cols="4"
+                            lg="2"
                         >
                             <v-text-field
                                 v-model="cotacao.QuantidadeSacasArrendamento"
@@ -462,20 +496,11 @@ export default {
               //  valorMaiorOscilacao: '',
 
             cotacao['precosMquiloindustrial']= cotacao['precosmsacaindustrial']/cotacao['pesoSacaKgs']
+            cotacao['valorMaiorOscilacao']= +cotacao['precosmsacaindustrial']+cotacao['precosmsacaindustrial']*(cotacao['MaiorOscilacaoDolar']/100)
+            cotacao['valorMenorOscilacao'] = +cotacao['precosmsacaindustrial']+cotacao['precosmsacaindustrial']*(cotacao['MenorOscilacaoDolar']/100)
 
         },
 
-        oscilacaoPositiva(cotacao){
-
-          //this.editedItem['valorMaiorOscilacao'] = +this.editedItem['precosmsacaindustrial']+this.editedItem['precosmsacaindustrial']*(this.editedItem['maioroscilacao']/100)
-
-            cotacao['valorMaiorOscilacao']= +cotacao['precosmsacaindustrial']+cotacao['precosmsacaindustrial']*(cotacao['maioroscilacao']/100)
-
-        },
-        oscilacaoNegativa(cotacao){
-            cotacao['valorMenorOscilacao'] = +cotacao['precosmsacaindustrial']+cotacao['precosmsacaindustrial']*(cotacao['menoroscilacao']/100)
-
-        },
 
         sacasVenda(cotacao){
             cotacao['QuantidadeSacasVenda'] = +cotacao['ValorHectareVenda']/cotacao['precosmsacaindustrial']

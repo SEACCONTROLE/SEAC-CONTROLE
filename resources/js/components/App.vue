@@ -4,7 +4,7 @@
         <v-main>
             <v-app-bar app color="#1abc9c" dark clipped-left>
                 <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-                <v-toolbar-title>Controllar</v-toolbar-title>
+                <v-toolbar-title>Controle</v-toolbar-title>
 
                 <v-spacer></v-spacer>
 
@@ -64,10 +64,11 @@ export default {
     data: () => ({
         drawer: null,
         items: [
-            { title: 'Home', icon: 'mdi-view-dashboard'},
-            { title: 'Seleção'},
-            { title: 'Propriedades' },
+            { title: 'Cadastros', icon: 'mdi-view-dashboard'},
+            { title: 'Simulador Mercado'},
+            { title: 'Pensamento Estratégico' },
         ]
+
     }),
 
     //lista action vuetify

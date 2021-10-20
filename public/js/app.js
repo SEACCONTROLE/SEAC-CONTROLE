@@ -1912,12 +1912,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       drawer: null,
       items: [{
-        title: 'Home',
+        title: 'Cadastros',
         icon: 'mdi-view-dashboard'
       }, {
-        title: 'Seleção'
+        title: 'Simulador Mercado'
       }, {
-        title: 'Propriedades'
+        title: 'Pensamento Estratégico'
       }]
     };
   },
@@ -1934,7 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
   /* <v-app dark id="inspire">
-        <v-navigation-drawer
+       <v-navigation-drawer
           app
           permanent expand-on-hover
          floating  color="white"
@@ -1945,7 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
   /*<template>
   <div id="app">
   <v-app dark id="inspire">
-        <v-navigation-drawer
+       <v-navigation-drawer
           app
           permanent expand-on-hover
          floating  color="white"
@@ -2131,6 +2131,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2775,6 +2779,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2870,13 +2908,8 @@ __webpack_require__.r(__webpack_exports__);
       //valorMenorOscilacao: '',
       //  valorMaiorOscilacao: '',
       cotacao['precosMquiloindustrial'] = cotacao['precosmsacaindustrial'] / cotacao['pesoSacaKgs'];
-    },
-    oscilacaoPositiva: function oscilacaoPositiva(cotacao) {
-      //this.editedItem['valorMaiorOscilacao'] = +this.editedItem['precosmsacaindustrial']+this.editedItem['precosmsacaindustrial']*(this.editedItem['maioroscilacao']/100)
-      cotacao['valorMaiorOscilacao'] = +cotacao['precosmsacaindustrial'] + cotacao['precosmsacaindustrial'] * (cotacao['maioroscilacao'] / 100);
-    },
-    oscilacaoNegativa: function oscilacaoNegativa(cotacao) {
-      cotacao['valorMenorOscilacao'] = +cotacao['precosmsacaindustrial'] + cotacao['precosmsacaindustrial'] * (cotacao['menoroscilacao'] / 100);
+      cotacao['valorMaiorOscilacao'] = +cotacao['precosmsacaindustrial'] + cotacao['precosmsacaindustrial'] * (cotacao['MaiorOscilacaoDolar'] / 100);
+      cotacao['valorMenorOscilacao'] = +cotacao['precosmsacaindustrial'] + cotacao['precosmsacaindustrial'] * (cotacao['MenorOscilacaoDolar'] / 100);
     },
     sacasVenda: function sacasVenda(cotacao) {
       cotacao['QuantidadeSacasVenda'] = +cotacao['ValorHectareVenda'] / cotacao['precosmsacaindustrial'];
@@ -2901,7 +2934,7 @@ __webpack_require__.r(__webpack_exports__);
                   this.$router.push('ciclo')
               })
           }
-        })
+       })
       */
 
       /*  axios.post('SalvarCotacoes',this.cotacao).then(response => {
@@ -2946,9 +2979,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-             })
+            })
            .finally(()=>{
-             })*/
+            })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -2991,16 +3024,16 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-               })
+              })
              .finally(()=>{
-               })*/
+              })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         /*axios.post('/cadastrarPropriedade', this.editedItem)
             .then(response=>{
-              })
+             })
             .finally(()=>{
-              })*/
+             })*/
         this.culturas.push(this.editedItem);
       }
 
@@ -3023,6 +3056,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
 //
 //
 //
@@ -3418,6 +3453,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -3571,6 +3608,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
 //
 //
 //
@@ -4147,6 +4186,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4567,9 +4610,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-             })
+            })
            .finally(()=>{
-             })*/
+            })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -4612,16 +4655,16 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-               })
+              })
              .finally(()=>{
-               })*/
+              })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         /*axios.post('/cadastrarPropriedade', this.editedItem)
             .then(response=>{
-              })
+             })
             .finally(()=>{
-              })*/
+             })*/
         this.culturas.push(this.editedItem);
       }
 
@@ -4644,6 +4687,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/components/Navbar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4951,9 +5040,9 @@ __webpack_require__.r(__webpack_exports__);
     deleteItemConfirm: function deleteItemConfirm() {
       /* axios.post('/deletarPropriedade', this.editedItem)
            .then(response=>{
-             })
+            })
            .finally(()=>{
-             })*/
+            })*/
       this.culturas.splice(this.editedIndex, 1);
       this.closeDelete();
     },
@@ -5001,9 +5090,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.editedIndex > -1) {
         /* axios.post('/editarPropriedade', this.propriedades[this.editedIndex])
              .then(response=>{
-               })
+              })
              .finally(()=>{
-               })*/
+              })*/
         Object.assign(this.culturas[this.editedIndex], this.editedItem);
       } else {
         this.pensamento.culturas = this.culturas;
@@ -43104,7 +43193,7 @@ var render = function() {
                     }
                   }),
                   _vm._v(" "),
-                  _c("v-toolbar-title", [_vm._v("Controllar")]),
+                  _c("v-toolbar-title", [_vm._v("Controle")]),
                   _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),
@@ -43429,7 +43518,9 @@ var render = function() {
         attrs: {
           headers: _vm.headers,
           items: _vm.ciclos,
-          "sort-by": "proprietario"
+          "sort-by": "proprietario",
+          loading: "",
+          "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
           {
@@ -43523,6 +43614,14 @@ var render = function() {
                                           },
                                           [
                                             _c("v-text-field", {
+                                              directives: [
+                                                {
+                                                  name: "mask",
+                                                  rawName: "v-mask",
+                                                  value: "##/##/####",
+                                                  expression: "'##/##/####'"
+                                                }
+                                              ],
                                               attrs: {
                                                 label: "Inicio do Ciclo"
                                               },
@@ -43553,6 +43652,14 @@ var render = function() {
                                           },
                                           [
                                             _c("v-text-field", {
+                                              directives: [
+                                                {
+                                                  name: "mask",
+                                                  rawName: "v-mask",
+                                                  value: "##/##/####",
+                                                  expression: "'##/##/####'"
+                                                }
+                                              ],
                                               attrs: {
                                                 label: "Termino do Ciclo"
                                               },
@@ -43826,10 +43933,25 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Valor em Dolar")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: { outlined: "", label: "Valor em Dolar" },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "#.##",
+                                expression: "'#.##'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             model: {
                               value: _vm.cotacao.valorDolarDolar,
                               callback: function($$v) {
@@ -43844,13 +43966,29 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Porcentagem da Menor Oscilação")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Porcentagem da Menor Oscilação"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "-###",
+                                expression: "'-###'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.dolar(_vm.cotacao)
@@ -43874,13 +44012,29 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Porcentagem da Maior Oscilação")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Porcentagem da Maior Oscilação"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###",
+                                expression: "'###'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.dolar2(_vm.cotacao)
@@ -43911,14 +44065,17 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "6" } },
+                        { attrs: { cols: "4", lg: "3" } },
+                        [_c("v-subheader", [_vm._v("Valor Menor Oscilação")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "3" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Valor Menor Oscilação"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.cotacao.valorOsciladoMenor,
                               callback: function($$v) {
@@ -43933,14 +44090,17 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "6" } },
+                        { attrs: { cols: "4", lg: "3" } },
+                        [_c("v-subheader", [_vm._v("Valor Maior Oscilação")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "3" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Valor Maior Oscilação"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.cotacao.valorOsciladoMaior,
                               callback: function($$v) {
@@ -43968,13 +44128,25 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Preço da Saca Atual")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Saca Padrão Industrial"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.##",
+                                expression: "'###.##'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.precoMedio(_vm.cotacao)
@@ -43998,10 +44170,25 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Peso Saca Kgs")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: { outlined: "", label: "Peso Saca Kgs" },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.##",
+                                expression: "'###.##'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.precoMedio(_vm.cotacao)
@@ -44021,14 +44208,17 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Preço Médio Kilo")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Preço Médio Kilo"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.cotacao.precosMquiloindustrial,
                               callback: function($$v) {
@@ -44053,72 +44243,21 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "6" } },
+                        { attrs: { cols: "4", lg: "3" } },
                         [
-                          _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Porcentagem de Oscilação Positiva Saca"
-                            },
-                            on: {
-                              keyup: function($event) {
-                                return _vm.oscilacaoPositiva(_vm.cotacao)
-                              }
-                            },
-                            model: {
-                              value: _vm.cotacao.maioroscilacao,
-                              callback: function($$v) {
-                                _vm.$set(_vm.cotacao, "maioroscilacao", $$v)
-                              },
-                              expression: "cotacao.maioroscilacao"
-                            }
-                          })
+                          _c("v-subheader", [
+                            _vm._v("Valor de Oscilação Positiva da Saca")
+                          ])
                         ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "6" } },
+                        { attrs: { cols: "4", lg: "3" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Porcentagem de Oscilação Negativa Saca"
-                            },
-                            on: {
-                              keyup: function($event) {
-                                return _vm.oscilacaoNegativa(_vm.cotacao)
-                              }
-                            },
-                            model: {
-                              value: _vm.cotacao.menoroscilacao,
-                              callback: function($$v) {
-                                _vm.$set(_vm.cotacao, "menoroscilacao", $$v)
-                              },
-                              expression: "cotacao.menoroscilacao"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-row",
-                    [
-                      _c(
-                        "v-col",
-                        { attrs: { cols: "12", lg: "6" } },
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Valor Oscilação Positiva Saca"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.cotacao.valorMaiorOscilacao,
                               callback: function($$v) {
@@ -44137,14 +44276,21 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "6" } },
+                        { attrs: { cols: "4", lg: "3" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Valor de Oscilação Negativa da Saca")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "3" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Valor Oscilação Negativa Saca"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.cotacao.valorMenorOscilacao,
                               callback: function($$v) {
@@ -44189,13 +44335,29 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "6", lg: "3" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Valor Do Hectare para Venda em R$")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "3" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Valor Do Hectare para Venda em R$"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.##",
+                                expression: "'###.##'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.sacasVenda(_vm.cotacao)
@@ -44215,7 +44377,14 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "6", lg: "3" } },
+                        [_c("v-subheader", [_vm._v("Valor em Sacas")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "3" } },
                         [
                           _c("v-text-field", {
                             attrs: {
@@ -44247,13 +44416,29 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Valor Hectare para Arrendamento Em %")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Valor Hectare para Arrendamento Em %\t"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###",
+                                expression: "'###'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             model: {
                               value: _vm.cotacao.porcentagemValorArrendamento,
                               callback: function($$v) {
@@ -44272,9 +44457,28 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Valor Do Hectare para Arrendamento Em R$")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.##",
+                                expression: "'###.##'"
+                              }
+                            ],
                             attrs: {
                               outlined: "",
                               label:
@@ -44303,7 +44507,14 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Valor em Sacas")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "4", lg: "2" } },
                         [
                           _c("v-text-field", {
                             attrs: {
@@ -44402,7 +44613,9 @@ var render = function() {
         attrs: {
           headers: _vm.headers,
           items: _vm.culturas,
-          "sort-by": "cultivar"
+          "sort-by": "cultivar",
+          loading: "",
+          "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
           {
@@ -44730,7 +44943,9 @@ var render = function() {
         attrs: {
           headers: _vm.headers,
           items: _vm.culturas,
-          "sort-by": "cultivar"
+          "sort-by": "cultivar",
+          loading: "",
+          "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
           {
@@ -45071,7 +45286,9 @@ var render = function() {
         attrs: {
           headers: _vm.headers,
           items: _vm.culturas,
-          "sort-by": "cultivar"
+          "sort-by": "cultivar",
+          loading: "",
+          "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
           {
@@ -45640,7 +45857,9 @@ var render = function() {
         attrs: {
           headers: _vm.headers,
           items: _vm.propriedades,
-          "sort-by": "proprietario"
+          "sort-by": "proprietario",
+          loading: "",
+          "loading-text": "Carregando... espere um momento"
         },
         scopedSlots: _vm._u([
           {
@@ -45794,6 +46013,14 @@ var render = function() {
                                           },
                                           [
                                             _c("v-text-field", {
+                                              directives: [
+                                                {
+                                                  name: "mask",
+                                                  rawName: "v-mask",
+                                                  value: "###.###.###-##",
+                                                  expression: "'###.###.###-##'"
+                                                }
+                                              ],
                                               attrs: { label: "CPF do Dono" },
                                               model: {
                                                 value: _vm.editedItem.cpf,
@@ -46295,13 +46522,25 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Área Total Talhão/Há")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Área Total Talhão/Há"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.#",
+                                expression: "'###.#'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.areaDisponivelHa(_vm.pensamento)
@@ -46321,13 +46560,29 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Área Disponível Talhão Para Uso %")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Área Disponível Talhão Para Uso %"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###",
+                                expression: "'###'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             on: {
                               keyup: function($event) {
                                 return _vm.areaDisponivelHa(_vm.pensamento)
@@ -46358,14 +46613,29 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Área Disponível De Uso Em Há")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Área Disponível De Uso Em Há"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.#",
+                                expression: "'###.#'"
+                              }
+                            ],
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.pensamento.areaDisponivelEmHa,
                               callback: function($$v) {
@@ -46384,13 +46654,25 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [_c("v-subheader", [_vm._v("Estimativa De Kgs/Há")])],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Estimativa De Kgs/Há"
-                            },
+                            directives: [
+                              {
+                                name: "mask",
+                                rawName: "v-mask",
+                                value: "###.###",
+                                expression: "'###.###'"
+                              }
+                            ],
+                            attrs: { outlined: "" },
                             model: {
                               value: _vm.pensamento.estimativaKgs,
                               callback: function($$v) {
@@ -46412,14 +46694,21 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Peso Médio Por Saca Em Kgs")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Peso Médio Por Saca Em Kgs"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.pensamento.pesoMedioSacaKgs,
                               callback: function($$v) {
@@ -46438,14 +46727,21 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Estimativa Colheita Em Kgs")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Estimativa Colheita Em Kgs"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.pensamento.estimativaColheitaKgs,
                               callback: function($$v) {
@@ -46471,14 +46767,21 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Estimatima Colheita Scs/Ha")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Estimatima Colheita Scs/Ha"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.pensamento.estimativaColheitasSacasHa,
                               callback: function($$v) {
@@ -46498,14 +46801,21 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Estimativa Colheita Total Em Sacas")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Estimativa Colheita Total Em Sacas"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value:
                                 _vm.pensamento.estimativaColheitaTotalSacas,
@@ -46533,14 +46843,21 @@ var render = function() {
                     [
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Estimativa Valor De Venda Saca R$")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              disabled: "",
-                              label: "Estimativa Valor De Venda Saca R$"
-                            },
+                            attrs: { outlined: "", disabled: "" },
                             model: {
                               value: _vm.pensamento.estimativaValorVenda,
                               callback: function($$v) {
@@ -46559,13 +46876,21 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "v-col",
-                        { attrs: { cols: "12", lg: "4" } },
+                        { attrs: { cols: "4", lg: "2" } },
+                        [
+                          _c("v-subheader", [
+                            _vm._v("Desejo De Margem Liquida em %/Sc")
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "v-col",
+                        { attrs: { cols: "6", lg: "2" } },
                         [
                           _c("v-text-field", {
-                            attrs: {
-                              outlined: "",
-                              label: "Desejo De Margem Liquida em %/Sc"
-                            },
+                            attrs: { outlined: "" },
                             model: {
                               value: _vm.pensamento.desejoMargemLiquida,
                               callback: function($$v) {
